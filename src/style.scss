@@ -23,13 +23,6 @@ body.product-115127875 {
     #shopHeader { display: none; }
 }
 
-// ---- セット別コンテンツ切り替え ----
-.set9, .set16, .set25 { display: none; }
-
-body.product-115127875 .set9  { display: block; }
-body.product-87999715  .set16 { display: block; }
-body.product-115127926 .set25 { display: block; }
-
 // ---- LP ヘッダー ----
 .header {
     position: fixed;
@@ -40,7 +33,7 @@ body.product-115127926 .set25 { display: block; }
 // ---- ヒーロー ----
 .hero { margin-top: 100px; }
 
-// ---- セクション共通 ----
+// ---- セクション共通（セット切り替えルールより先に宣言すること） ----
 .section-image {
     display: block;
     margin: 0 auto;
@@ -49,5 +42,13 @@ body.product-115127926 .set25 { display: block; }
 
 // ---- 準備中コンテンツ ----
 .preparation { display: none; }
+
+// ---- セット別コンテンツ切り替え（.section-image より後に宣言することで優先される） ----
+// ※ .set9/.set16/.set25 と .section-image の特異度が同じ(0,1,0)のため宣言順が重要
+.set9, .set16, .set25 { display: none; }
+
+body.product-115127875 .set9  { display: block; }
+body.product-87999715  .set16 { display: block; }
+body.product-115127926 .set25 { display: block; }
 
 // ---- ここにカスタムスタイルを追加 ----
