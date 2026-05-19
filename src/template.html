@@ -1,9 +1,11 @@
 {block:NotLoadItemsPage}
 <!DOCTYPE html>
+
 <head>
     <meta charset="utf-8">
     <meta name="copyright" content="BASE">
-    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+        content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>{PageTitle}</title>
     {FaviconTag}
     {CanonicalTag}
@@ -14,43 +16,55 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
 
     {block:ItemPage}
-        {MetaItemInfoTag}
-        <!-- 商品ページ専用CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/stevenwanderski/bxslider-4@4.2.15/dist/jquery.bxslider.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jackmoore/colorbox@1.6.4/example1/colorbox.css">
-        <link rel="stylesheet" href="{BASEURL}/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/malihu/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.min.css">
-        <!-- BASEデータ注入（script.js から参照、ItemPageのみで展開） -->
-        <script>
-            window.BASE_ITEM = { id: {ItemId}, price: "{ItemPrice}", stock: {ItemStock} };
-            document.addEventListener('DOMContentLoaded', function() {
-                document.body.classList.add('product-' + window.BASE_ITEM.id);
-            });
-        </script>
+    {MetaItemInfoTag}
+    <!-- 商品ページ専用CSS -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/stevenwanderski/bxslider-4@4.2.15/dist/jquery.bxslider.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jackmoore/colorbox@1.6.4/example1/colorbox.css">
+    <link rel="stylesheet" href="{BASEURL}/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/malihu/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.min.css">
+    <!-- BASEデータ注入（script.js から参照、ItemPageのみで展開） -->
+    <script>
+        window.BASE_ITEM = { id: { ItemId }, price: "{ItemPrice}", stock: { ItemStock } };
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.add('product-' + window.BASE_ITEM.id);
+        });
+    </script>
     {/block:ItemPage}
 
     {block:NotItemPage}
-        {MetaShopInfoTag}
+    {MetaShopInfoTag}
     {/block:NotItemPage}
 
     {block:IndexPage}
-        {HeadLinkNextPrevTag}
+    {HeadLinkNextPrevTag}
     {/block:IndexPage}
 
     {BackgroundTag}
 
     <!-- NavColor（BASEタグ依存のためインライン） -->
     <style type="text/css">
-        {block:NavColor}
+        {
+            block: NavColor
+        }
+
         .childCategoryList01_child,
         .childCategoryList01_link,
         .mainHeaderNavColor,
         .appsItemCategoryTag_lowerLink,
         .categoryTitle01,
         .footerNav {
-            color: {NavColor};
+            color: {
+                NavColor
+            }
+
+            ;
         }
-        {/block:NavColor}
+
+            {
+            /block: NavColor
+        }
 
         /* ヒーロー背景（BASEタグ依存のためインライン） */
         .hero::before {
@@ -63,206 +77,227 @@
 
     <!-- 外部JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jimyi/jquery_bottom@1b7e2204c9193647884581804011ceb5d1d95aac/jquery.bottom-1.0.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/jimyi/jquery_bottom@1b7e2204c9193647884581804011ceb5d1d95aac/jquery.bottom-1.0.min.js"></script>
     <script src="{BASEURL}/js/change_status.js?{UpdateTime}"></script>
 
     {GoogleAnalyticsTag}
 
     {block:AppsSearch}
-        <link rel="stylesheet" type="text/css" href="{BASEURL}/search/css/shopTemplate/search.css?{UpdateTime}">
+    <link rel="stylesheet" type="text/css" href="{BASEURL}/search/css/shopTemplate/search.css?{UpdateTime}">
     {/block:AppsSearch}
 
     {block:AppsItemLabel}
-        <link rel="stylesheet" type="text/css" href="{BASEURL}/item_label/css/ShopTemplate/style.css?{UpdateTime}">
-        <script type="text/javascript" src="{BASEURL}/item_label/js/ShopTemplate/labelpostion.js?{UpdateTime}"></script>
+    <link rel="stylesheet" type="text/css" href="{BASEURL}/item_label/css/ShopTemplate/style.css?{UpdateTime}">
+    <script type="text/javascript" src="{BASEURL}/item_label/js/ShopTemplate/labelpostion.js?{UpdateTime}"></script>
     {/block:AppsItemLabel}
 
     {block:AppsBlog}
-        <link href="{BlogFeedPageURL}" rel="alternate" type="application/rss+xml" title="Blog | {ShopName}">
+    <link href="{BlogFeedPageURL}" rel="alternate" type="application/rss+xml" title="Blog | {ShopName}">
     {/block:AppsBlog}
 
     <!-- Twitter コンバージョントラッキング -->
     <script>
-        !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-        },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
-        a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-        twq('config','omrti');
+        !function (e, t, n, s, u, a) {
+            e.twq || (s = e.twq = function () {
+                s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);
+            }, s.version = '1.1', s.queue = [], u = t.createElement(n), u.async = !0, u.src = 'https://static.ads-twitter.com/uwt.js',
+                a = t.getElementsByTagName(n)[0], a.parentNode.insertBefore(u, a))
+        }(window, document, 'script');
+        twq('config', 'omrti');
     </script>
 </head>
-<body id="{block:IndexPage}shopTopPage{/block:IndexPage}{block:ItemPage}shopDetailPage{/block:ItemPage}" class="shop template">
 
-{block:AppsInformationBanner}
+<body id="{block:IndexPage}shopTopPage{/block:IndexPage}{block:ItemPage}shopDetailPage{/block:ItemPage}"
+    class="shop template">
+
+    {block:AppsInformationBanner}
     {AppsInformationBannerTag}
     <script type="text/javascript">
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             var banner = document.getElementsByClassName('informationBanner');
             if (!banner || banner.length === 0) return;
-            new ResizeObserver(function(entries) {
-                entries.forEach(function(entry) {
+            new ResizeObserver(function (entries) {
+                entries.forEach(function (entry) {
                     document.documentElement.style.setProperty('--information-banner-height', entry.target.offsetHeight + 'px');
                 });
             }).observe(banner[0]);
         });
     </script>
-{/block:AppsInformationBanner}
+    {/block:AppsInformationBanner}
 
-{block:AppsI18n}{AppsI18nTag}{/block:AppsI18n}
-{BASEMenuTag}
+    {block:AppsI18n}{AppsI18nTag}{/block:AppsI18n}
+    {BASEMenuTag}
 
-{block:IndexPage}
+    {block:IndexPage}
     <span id="max_page" style="display:none;">{MaxPageNumber}</span>
     <span id="next_page" style="display:none;">{NextPageNumber}</span>
-{/block:IndexPage}
+    {/block:IndexPage}
 
-<!-- ショップ共通ヘッダー -->
-<header id="mainHeader" class="wrapper product-{ItemId}">
-    <div id="shopHeader">
-        <h1 class="not-content-for-elemnt-cube"><a href="{IndexPageURL}" id="logo">{LogoTag}</a></h1>
-        <nav>
-            <ul>
-                <li><a class="mainHeaderNavColor" href="{IndexPageURL}">HOME</a></li>
-                <li><a class="mainHeaderNavColor" href="{AboutPageURL}">ABOUT</a></li>
-                {block:AppsBlog}
+    <!-- ショップ共通ヘッダー -->
+    <header id="mainHeader" class="wrapper product-{ItemId}">
+        <div id="shopHeader">
+            <h1 class="not-content-for-elemnt-cube"><a href="{IndexPageURL}" id="logo">{LogoTag}</a></h1>
+            <nav>
+                <ul>
+                    <li><a class="mainHeaderNavColor" href="{IndexPageURL}">HOME</a></li>
+                    <li><a class="mainHeaderNavColor" href="{AboutPageURL}">ABOUT</a></li>
+                    {block:AppsBlog}
                     <li><a class="mainHeaderNavColor" href="{BlogPageURL}">BLOG</a></li>
-                {/block:AppsBlog}
-                {block:AppsItemCategory}
+                    {/block:AppsBlog}
+                    {block:AppsItemCategory}
                     <li>
                         <div id="category-menu">
                             <span class="mainHeaderNavColor">CATEGORY</span>
                             <div class="category-list">{AppsItemCategoryCategoriesTag}</div>
                         </div>
                     </li>
-                {/block:AppsItemCategory}
-                {block:AppsCommunity}
+                    {/block:AppsItemCategory}
+                    {block:AppsCommunity}
                     <li><a class="mainHeaderNavColor" href="{CommunityPageURL}">COMMUNITY</a></li>
-                {/block:AppsCommunity}
-                {block:AppsMembership}
+                    {/block:AppsCommunity}
+                    {block:AppsMembership}
                     <li><a class="mainHeaderNavColor" href="{MembershipPageURL}">MEMBERSHIP</a></li>
                     <li><a class="mainHeaderNavColor" href="{MembershipMyPageURL}">MYPAGE</a></li>
-                {/block:AppsMembership}
-                <li><a class="mainHeaderNavColor" href="{ContactPageURL}">CONTACT</a></li>
-                {block:AppsSearch}
+                    {/block:AppsMembership}
+                    <li><a class="mainHeaderNavColor" href="{ContactPageURL}">CONTACT</a></li>
+                    {block:AppsSearch}
                     <li class="column itemSearch">
                         <form id="x_itemSearchForm" class="itemSearch__form" action="{SearchPageURL}" method="get">
-                            <input class="itemSearch__field" type="text" name="q" placeholder="SEARCH" value="{IndexPageSearch}">
-                            <button class="itemSearch__btn" type="submit"><span id="x_iconSearch" class="mainHeaderNavColor si-search"></span></button>
+                            <input class="itemSearch__field" type="text" name="q" placeholder="SEARCH"
+                                value="{IndexPageSearch}">
+                            <button class="itemSearch__btn" type="submit"><span id="x_iconSearch"
+                                    class="mainHeaderNavColor si-search"></span></button>
                         </form>
                     </li>
-                {/block:AppsSearch}
-                <li><a class="mainHeaderNavColor" href="https://camel-jp.github.io/element-cube-details/">元素の解説</a></li>
-            </ul>
-        </nav>
-        {block:AppsItemCategory}{block:IndexPageCategory}
+                    {/block:AppsSearch}
+                    <li><a class="mainHeaderNavColor" href="https://camel-jp.github.io/element-cube-details/">元素の解説</a>
+                    </li>
+                </ul>
+            </nav>
+            {block:AppsItemCategory}{block:IndexPageCategory}
             <h2 class="categoryTitle01">{IndexPageCategory}</h2>
             {block:HasAppsItemCategoryChildCategories}
-                <ul class="childCategoryList01">
-                    {block:AppsItemCategoryChildCategories}
-                    <li class="childCategoryList01_child"><a href="{AppsItemCategoryChildCategoryPageURL}" class="childCategoryList01_link">{AppsItemCategoryChildCategoryName}</a></li>
-                    {/block:AppsItemCategoryChildCategories}
-                </ul>
+            <ul class="childCategoryList01">
+                {block:AppsItemCategoryChildCategories}
+                <li class="childCategoryList01_child"><a href="{AppsItemCategoryChildCategoryPageURL}"
+                        class="childCategoryList01_link">{AppsItemCategoryChildCategoryName}</a></li>
+                {/block:AppsItemCategoryChildCategories}
+            </ul>
             {/block:HasAppsItemCategoryChildCategories}
-        {/block:IndexPageCategory}{/block:AppsItemCategory}
-    </div>
-</header>
+            {/block:IndexPageCategory}{/block:AppsItemCategory}
+        </div>
+    </header>
 
-<!-- ============================================================ -->
-<!-- 商品一覧ページ                                                -->
-<!-- ============================================================ -->
-{block:IndexPage}
+    <!-- ============================================================ -->
+    <!-- 商品一覧ページ                                                -->
+    <!-- ============================================================ -->
+    {block:IndexPage}
     {block:NotShopPublic}
-        <p style="text-align:center;">{lang:NotShopPublicMessage}</p>
+    <p style="text-align:center;">{lang:NotShopPublicMessage}</p>
     {/block:NotShopPublic}
     {block:ShopPublic}
-        {block:AppsBlogArticleIsPinned}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
-            <div class="pinnedBlog">
-                <p class="pinnedBlog_title mainHeaderNavColor">
-                    <a href="{AppsBlogArticlePageURL}">{AppsBlogArticleTitle}</a>
-                </p>
+    {block:AppsBlogArticleIsPinned}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+    <div class="pinnedBlog">
+        <p class="pinnedBlog_title mainHeaderNavColor">
+            <a href="{AppsBlogArticlePageURL}">{AppsBlogArticleTitle}</a>
+        </p>
+    </div>
+    {/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:AppsBlogArticleIsPinned}
+
+    {block:IndexPageSearch}
+    <h3 class="mainHeaderNavColor titleForSearchResult">{lang:ItemSearchResult}</h3>
+    {/block:IndexPageSearch}
+
+    {block:HasItems}
+    <section id="mainContent" class="itemList clearfix">
+        {block:Items}
+        <div class="item part">
+            <div class="itemImg">
+                <a href="{ItemPageURL}">
+                    {block:AppsItemLabel}{AppsItemLabelTag}{/block:AppsItemLabel}
+                    <img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}"
+                        alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
+                    {block:ItemNowOnSale}
+                    {block:NoItemStock}<div class="soldout_cover">
+                        <p>SOLD OUT</p>
+                    </div>{/block:NoItemStock}
+                    {/block:ItemNowOnSale}
+                    {block:ItemEndOfSale}<div class="soldout_cover">
+                        <p>SOLD OUT</p>
+                    </div>{/block:ItemEndOfSale}
+                </a>
             </div>
-        {/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:AppsBlogArticleIsPinned}
-
-        {block:IndexPageSearch}
-            <h3 class="mainHeaderNavColor titleForSearchResult">{lang:ItemSearchResult}</h3>
-        {/block:IndexPageSearch}
-
-        {block:HasItems}
-            <section id="mainContent" class="itemList clearfix">
-                {block:Items}
-                <div class="item part">
-                    <div class="itemImg">
-                        <a href="{ItemPageURL}">
-                            {block:AppsItemLabel}{AppsItemLabelTag}{/block:AppsItemLabel}
-                            <img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
-                            {block:ItemNowOnSale}
-                                {block:NoItemStock}<div class="soldout_cover"><p>SOLD OUT</p></div>{/block:NoItemStock}
-                            {/block:ItemNowOnSale}
-                            {block:ItemEndOfSale}<div class="soldout_cover"><p>SOLD OUT</p></div>{/block:ItemEndOfSale}
-                        </a>
-                    </div>
-                    <a href="{ItemPageURL}">
-                        <div class="itemTitle"><h2>{ItemTitle}</h2></div>
-                        <ul class="itemDetail">
-                            {block:NoItemProperPrice}<li class="itemPrice">{ItemPrice}</li>{/block:NoItemProperPrice}
-                            {block:HasItemProperPrice}
-                            <li class="discountPrice">
-                                <span class="discountPrice__ratio">{ItemDiscountRate}</span>
-                                <span class="discountPrice__calcPrice">{ItemPrice}</span>
-                            </li>
-                            {/block:HasItemProperPrice}
-                        </ul>
-                        {block:HasItemStock}
-                            {block:ItemWatingForSale}<p class="comingSoon">COMING SOON</p>{/block:ItemWatingForSale}
-                            {block:ItemNowOnSale}
-                                {block:ItemPreOrder}<p class="preOrder">{lang:PreOrderItem}</p>{/block:ItemPreOrder}
-                                {block:ItemLottery}<p class="lottery">{lang:LotteryItem}</p>{/block:ItemLottery}
-                                {block:ItemTakeout}<p class="takeout">{lang:TakeoutItem}</p>{/block:ItemTakeout}
-                                {block:ItemCommunityLimited}<p class="community">{lang:CommunityLimitedItem}</p>{/block:ItemCommunityLimited}
-                            {/block:ItemNowOnSale}
-                        {/block:HasItemStock}
-                        {block:NoItemStock}
-                            {block:ItemWatingForSale}<p class="comingSoon">COMING SOON</p>{/block:ItemWatingForSale}
-                        {/block:NoItemStock}
-                    </a>
+            <a href="{ItemPageURL}">
+                <div class="itemTitle">
+                    <h2>{ItemTitle}</h2>
                 </div>
-                {/block:Items}
-            </section>
-            <div id="loading" style="display:none;text-align:center;"><img src="/img/loading.gif" width="220" style="padding:20px 0;"></div>
-        {/block:HasItems}
-        {block:NoItems}
-            <p style="text-align:center;">{lang:NoItemsMessage}</p>
-        {/block:NoItems}
+                <ul class="itemDetail">
+                    {block:NoItemProperPrice}<li class="itemPrice">{ItemPrice}</li>{/block:NoItemProperPrice}
+                    {block:HasItemProperPrice}
+                    <li class="discountPrice">
+                        <span class="discountPrice__ratio">{ItemDiscountRate}</span>
+                        <span class="discountPrice__calcPrice">{ItemPrice}</span>
+                    </li>
+                    {/block:HasItemProperPrice}
+                </ul>
+                {block:HasItemStock}
+                {block:ItemWatingForSale}<p class="comingSoon">COMING SOON</p>{/block:ItemWatingForSale}
+                {block:ItemNowOnSale}
+                {block:ItemPreOrder}<p class="preOrder">{lang:PreOrderItem}</p>{/block:ItemPreOrder}
+                {block:ItemLottery}<p class="lottery">{lang:LotteryItem}</p>{/block:ItemLottery}
+                {block:ItemTakeout}<p class="takeout">{lang:TakeoutItem}</p>{/block:ItemTakeout}
+                {block:ItemCommunityLimited}<p class="community">{lang:CommunityLimitedItem}</p>
+                {/block:ItemCommunityLimited}
+                {/block:ItemNowOnSale}
+                {/block:HasItemStock}
+                {block:NoItemStock}
+                {block:ItemWatingForSale}<p class="comingSoon">COMING SOON</p>{/block:ItemWatingForSale}
+                {/block:NoItemStock}
+            </a>
+        </div>
+        {/block:Items}
+    </section>
+    <div id="loading" style="display:none;text-align:center;"><img src="/img/loading.gif" width="220"
+            style="padding:20px 0;"></div>
+    {/block:HasItems}
+    {block:NoItems}
+    <p style="text-align:center;">{lang:NoItemsMessage}</p>
+    {/block:NoItems}
     {/block:ShopPublic}
     <script type="text/javascript">
         var process_flg = false, end_flg = false;
-        $(window).bottom({proximity: 0.05});
-        $(window).on('bottom', function() {
+        $(window).bottom({ proximity: 0.05 });
+        $(window).on('bottom', function () {
             if (process_flg || end_flg) return;
-            var max_page  = parseInt($('#max_page').text(), 10);
+            var max_page = parseInt($('#max_page').text(), 10);
             var next_page = parseInt($('#next_page').text(), 10);
             if (max_page >= next_page) {
                 $.ajax({
                     url: '{LoadItemsPageURL}' + next_page + '{LoadItemsPageURLParams}',
                     dataType: 'html',
-                    beforeSend: function() { process_flg = true; $('#loading').show(); },
-                    success:   function(data) { $('#mainContent').append(data); $('#next_page').text(next_page + 1); },
-                    complete:  function() { process_flg = false; $('#loading').hide(); }
+                    beforeSend: function () { process_flg = true; $('#loading').show(); },
+                    success: function (data) { $('#mainContent').append(data); $('#next_page').text(next_page + 1); },
+                    complete: function () { process_flg = false; $('#loading').hide(); }
                 });
             } else {
                 end_flg = true;
             }
         });
     </script>
-{/block:IndexPage}
+    {/block:IndexPage}
 
-<!-- ============================================================ -->
-<!-- 商品詳細ページ                                                -->
-<!-- ============================================================ -->
-{block:ItemPage}
+    <!-- ============================================================ -->
+    <!-- 商品詳細ページ                                                -->
+    <!-- ============================================================ -->
+    {block:ItemPage}
 
     <!-- LP ヘッダー（元素キューブ商品のみ表示） -->
     <header class="header content-for-elemnt-cube">
         <div class="container">
-            <div class="logo"><h1>{ItemTitle}</h1></div>
+            <div class="logo">
+                <h1>{ItemTitle}</h1>
+            </div>
             <nav class="nav">
                 <ul>
                     <li><a href="#product">商品概要</a></li>
@@ -292,49 +327,155 @@
             <div class="itemImg clearfix">
                 <div class="itemImgSlide">
                     <ul id="slideImg">
-                        <li><div class="imgBox"><a href="{block:ItemImage1}{ItemImage1URL-origin}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" class="ajax btn grn save" rel="group">{block:AppsItemLabel}{AppsItemLabelTag}{/block:AppsItemLabel}<img src="{block:ItemImage1}{ItemImage1URL-500}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title=""></a></div></li>
-                        {block:ItemImage2}<li style="display:none;"><div class="imgBox"><a href="{ItemImage2URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage2URL-500}" alt="" title=""></a></div></li>{/block:ItemImage2}
-                        {block:ItemImage3}<li style="display:none;"><div class="imgBox"><a href="{ItemImage3URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage3URL-500}" alt="" title=""></a></div></li>{/block:ItemImage3}
-                        {block:ItemImage4}<li style="display:none;"><div class="imgBox"><a href="{ItemImage4URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage4URL-500}" alt="" title=""></a></div></li>{/block:ItemImage4}
-                        {block:ItemImage5}<li style="display:none;"><div class="imgBox"><a href="{ItemImage5URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage5URL-500}" alt="" title=""></a></div></li>{/block:ItemImage5}
-                        {block:ItemImage6}<li style="display:none;"><div class="imgBox"><a href="{ItemImage6URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage6URL-500}" alt="" title=""></a></div></li>{/block:ItemImage6}
-                        {block:ItemImage7}<li style="display:none;"><div class="imgBox"><a href="{ItemImage7URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage7URL-500}" alt="" title=""></a></div></li>{/block:ItemImage7}
-                        {block:ItemImage8}<li style="display:none;"><div class="imgBox"><a href="{ItemImage8URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage8URL-500}" alt="" title=""></a></div></li>{/block:ItemImage8}
-                        {block:ItemImage9}<li style="display:none;"><div class="imgBox"><a href="{ItemImage9URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage9URL-500}" alt="" title=""></a></div></li>{/block:ItemImage9}
-                        {block:ItemImage10}<li style="display:none;"><div class="imgBox"><a href="{ItemImage10URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage10URL-500}" alt="" title=""></a></div></li>{/block:ItemImage10}
-                        {block:ItemImage11}<li style="display:none;"><div class="imgBox"><a href="{ItemImage11URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage11URL-500}" alt="" title=""></a></div></li>{/block:ItemImage11}
-                        {block:ItemImage12}<li style="display:none;"><div class="imgBox"><a href="{ItemImage12URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage12URL-500}" alt="" title=""></a></div></li>{/block:ItemImage12}
-                        {block:ItemImage13}<li style="display:none;"><div class="imgBox"><a href="{ItemImage13URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage13URL-500}" alt="" title=""></a></div></li>{/block:ItemImage13}
-                        {block:ItemImage14}<li style="display:none;"><div class="imgBox"><a href="{ItemImage14URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage14URL-500}" alt="" title=""></a></div></li>{/block:ItemImage14}
-                        {block:ItemImage15}<li style="display:none;"><div class="imgBox"><a href="{ItemImage15URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage15URL-500}" alt="" title=""></a></div></li>{/block:ItemImage15}
-                        {block:ItemImage16}<li style="display:none;"><div class="imgBox"><a href="{ItemImage16URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage16URL-500}" alt="" title=""></a></div></li>{/block:ItemImage16}
-                        {block:ItemImage17}<li style="display:none;"><div class="imgBox"><a href="{ItemImage17URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage17URL-500}" alt="" title=""></a></div></li>{/block:ItemImage17}
-                        {block:ItemImage18}<li style="display:none;"><div class="imgBox"><a href="{ItemImage18URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage18URL-500}" alt="" title=""></a></div></li>{/block:ItemImage18}
-                        {block:ItemImage19}<li style="display:none;"><div class="imgBox"><a href="{ItemImage19URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage19URL-500}" alt="" title=""></a></div></li>{/block:ItemImage19}
-                        {block:ItemImage20}<li style="display:none;"><div class="imgBox"><a href="{ItemImage20URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage20URL-500}" alt="" title=""></a></div></li>{/block:ItemImage20}
+                        <li>
+                            <div class="imgBox"><a
+                                    href="{block:ItemImage1}{ItemImage1URL-origin}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}"
+                                    class="ajax btn grn save"
+                                    rel="group">{block:AppsItemLabel}{AppsItemLabelTag}{/block:AppsItemLabel}<img
+                                        src="{block:ItemImage1}{ItemImage1URL-500}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}"
+                                        alt="{ItemTitle}" title=""></a></div>
+                        </li>
+                        {block:ItemImage2}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage2URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage2URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage2}
+                        {block:ItemImage3}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage3URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage3URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage3}
+                        {block:ItemImage4}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage4URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage4URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage4}
+                        {block:ItemImage5}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage5URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage5URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage5}
+                        {block:ItemImage6}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage6URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage6URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage6}
+                        {block:ItemImage7}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage7URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage7URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage7}
+                        {block:ItemImage8}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage8URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage8URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage8}
+                        {block:ItemImage9}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage9URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage9URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage9}
+                        {block:ItemImage10}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage10URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage10URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage10}
+                        {block:ItemImage11}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage11URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage11URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage11}
+                        {block:ItemImage12}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage12URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage12URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage12}
+                        {block:ItemImage13}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage13URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage13URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage13}
+                        {block:ItemImage14}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage14URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage14URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage14}
+                        {block:ItemImage15}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage15URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage15URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage15}
+                        {block:ItemImage16}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage16URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage16URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage16}
+                        {block:ItemImage17}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage17URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage17URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage17}
+                        {block:ItemImage18}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage18URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage18URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage18}
+                        {block:ItemImage19}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage19URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage19URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage19}
+                        {block:ItemImage20}<li style="display:none;">
+                            <div class="imgBox"><a href="{ItemImage20URL-origin}" class="ajax btn grn save"
+                                    rel="group"><img src="{ItemImage20URL-500}" alt="" title=""></a></div>
+                        </li>{/block:ItemImage20}
                     </ul>
                 </div>
                 <ul id="slideImgPager">
-                    <li><a data-slide-index="0" href=""><div class="smallImgBox"><img src="{block:ItemImage1}{ItemImage1URL-76}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title=""></div></a></li>
-                    {block:ItemImage2}<li><a data-slide-index="1" href=""><div class="smallImgBox"><img src="{ItemImage2URL-76}" alt="" title=""></div></a></li>{/block:ItemImage2}
-                    {block:ItemImage3}<li><a data-slide-index="2" href=""><div class="smallImgBox"><img src="{ItemImage3URL-76}" alt="" title=""></div></a></li>{/block:ItemImage3}
-                    {block:ItemImage4}<li><a data-slide-index="3" href=""><div class="smallImgBox"><img src="{ItemImage4URL-76}" alt="" title=""></div></a></li>{/block:ItemImage4}
-                    {block:ItemImage5}<li><a data-slide-index="4" href=""><div class="smallImgBox"><img src="{ItemImage5URL-76}" alt="" title=""></div></a></li>{/block:ItemImage5}
-                    {block:ItemImage6}<li><a data-slide-index="5" href=""><div class="smallImgBox"><img src="{ItemImage6URL-76}" alt="" title=""></div></a></li>{/block:ItemImage6}
-                    {block:ItemImage7}<li><a data-slide-index="6" href=""><div class="smallImgBox"><img src="{ItemImage7URL-76}" alt="" title=""></div></a></li>{/block:ItemImage7}
-                    {block:ItemImage8}<li><a data-slide-index="7" href=""><div class="smallImgBox"><img src="{ItemImage8URL-76}" alt="" title=""></div></a></li>{/block:ItemImage8}
-                    {block:ItemImage9}<li><a data-slide-index="8" href=""><div class="smallImgBox"><img src="{ItemImage9URL-76}" alt="" title=""></div></a></li>{/block:ItemImage9}
-                    {block:ItemImage10}<li><a data-slide-index="9" href=""><div class="smallImgBox"><img src="{ItemImage10URL-76}" alt="" title=""></div></a></li>{/block:ItemImage10}
-                    {block:ItemImage11}<li><a data-slide-index="10" href=""><div class="smallImgBox"><img src="{ItemImage11URL-76}" alt="" title=""></div></a></li>{/block:ItemImage11}
-                    {block:ItemImage12}<li><a data-slide-index="11" href=""><div class="smallImgBox"><img src="{ItemImage12URL-76}" alt="" title=""></div></a></li>{/block:ItemImage12}
-                    {block:ItemImage13}<li><a data-slide-index="12" href=""><div class="smallImgBox"><img src="{ItemImage13URL-76}" alt="" title=""></div></a></li>{/block:ItemImage13}
-                    {block:ItemImage14}<li><a data-slide-index="13" href=""><div class="smallImgBox"><img src="{ItemImage14URL-76}" alt="" title=""></div></a></li>{/block:ItemImage14}
-                    {block:ItemImage15}<li><a data-slide-index="14" href=""><div class="smallImgBox"><img src="{ItemImage15URL-76}" alt="" title=""></div></a></li>{/block:ItemImage15}
-                    {block:ItemImage16}<li><a data-slide-index="15" href=""><div class="smallImgBox"><img src="{ItemImage16URL-76}" alt="" title=""></div></a></li>{/block:ItemImage16}
-                    {block:ItemImage17}<li><a data-slide-index="16" href=""><div class="smallImgBox"><img src="{ItemImage17URL-76}" alt="" title=""></div></a></li>{/block:ItemImage17}
-                    {block:ItemImage18}<li><a data-slide-index="17" href=""><div class="smallImgBox"><img src="{ItemImage18URL-76}" alt="" title=""></div></a></li>{/block:ItemImage18}
-                    {block:ItemImage19}<li><a data-slide-index="18" href=""><div class="smallImgBox"><img src="{ItemImage19URL-76}" alt="" title=""></div></a></li>{/block:ItemImage19}
-                    {block:ItemImage20}<li><a data-slide-index="19" href=""><div class="smallImgBox"><img src="{ItemImage20URL-76}" alt="" title=""></div></a></li>{/block:ItemImage20}
+                    <li><a data-slide-index="0" href="">
+                            <div class="smallImgBox"><img
+                                    src="{block:ItemImage1}{ItemImage1URL-76}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}"
+                                    alt="{ItemTitle}" title=""></div>
+                        </a></li>
+                    {block:ItemImage2}<li><a data-slide-index="1" href="">
+                            <div class="smallImgBox"><img src="{ItemImage2URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage2}
+                    {block:ItemImage3}<li><a data-slide-index="2" href="">
+                            <div class="smallImgBox"><img src="{ItemImage3URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage3}
+                    {block:ItemImage4}<li><a data-slide-index="3" href="">
+                            <div class="smallImgBox"><img src="{ItemImage4URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage4}
+                    {block:ItemImage5}<li><a data-slide-index="4" href="">
+                            <div class="smallImgBox"><img src="{ItemImage5URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage5}
+                    {block:ItemImage6}<li><a data-slide-index="5" href="">
+                            <div class="smallImgBox"><img src="{ItemImage6URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage6}
+                    {block:ItemImage7}<li><a data-slide-index="6" href="">
+                            <div class="smallImgBox"><img src="{ItemImage7URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage7}
+                    {block:ItemImage8}<li><a data-slide-index="7" href="">
+                            <div class="smallImgBox"><img src="{ItemImage8URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage8}
+                    {block:ItemImage9}<li><a data-slide-index="8" href="">
+                            <div class="smallImgBox"><img src="{ItemImage9URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage9}
+                    {block:ItemImage10}<li><a data-slide-index="9" href="">
+                            <div class="smallImgBox"><img src="{ItemImage10URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage10}
+                    {block:ItemImage11}<li><a data-slide-index="10" href="">
+                            <div class="smallImgBox"><img src="{ItemImage11URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage11}
+                    {block:ItemImage12}<li><a data-slide-index="11" href="">
+                            <div class="smallImgBox"><img src="{ItemImage12URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage12}
+                    {block:ItemImage13}<li><a data-slide-index="12" href="">
+                            <div class="smallImgBox"><img src="{ItemImage13URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage13}
+                    {block:ItemImage14}<li><a data-slide-index="13" href="">
+                            <div class="smallImgBox"><img src="{ItemImage14URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage14}
+                    {block:ItemImage15}<li><a data-slide-index="14" href="">
+                            <div class="smallImgBox"><img src="{ItemImage15URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage15}
+                    {block:ItemImage16}<li><a data-slide-index="15" href="">
+                            <div class="smallImgBox"><img src="{ItemImage16URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage16}
+                    {block:ItemImage17}<li><a data-slide-index="16" href="">
+                            <div class="smallImgBox"><img src="{ItemImage17URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage17}
+                    {block:ItemImage18}<li><a data-slide-index="17" href="">
+                            <div class="smallImgBox"><img src="{ItemImage18URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage18}
+                    {block:ItemImage19}<li><a data-slide-index="18" href="">
+                            <div class="smallImgBox"><img src="{ItemImage19URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage19}
+                    {block:ItemImage20}<li><a data-slide-index="19" href="">
+                            <div class="smallImgBox"><img src="{ItemImage20URL-76}" alt="" title=""></div>
+                        </a></li>{/block:ItemImage20}
                 </ul>
             </div>
 
@@ -342,14 +483,15 @@
                 <p>{ItemDetail}</p>
             </div>
             {block:AppsItemDetailCustom}
-                {AdditionalItemDetail}
-                {AdditionalItemDetailDefaultCssAndJs}
+            {AdditionalItemDetail}
+            {AdditionalItemDetailDefaultCssAndJs}
             {/block:AppsItemDetailCustom}
         </div>
 
         <!-- 価格・購入ボタン -->
         <div class="purchase">
-            <div class="itemPrice {block:ItemNowOnSale}{block:NoItemStock}itemPrice_soldout{/block:NoItemStock}{/block:ItemNowOnSale} {block:ItemEndOfSale}itemPrice_soldout{/block:ItemEndOfSale}">
+            <div
+                class="itemPrice {block:ItemNowOnSale}{block:NoItemStock}itemPrice_soldout{/block:NoItemStock}{/block:ItemNowOnSale} {block:ItemEndOfSale}itemPrice_soldout{/block:ItemEndOfSale}">
                 {block:NoItemProperPrice}
                 <h2>{ItemPrice}</h2>
                 {/block:NoItemProperPrice}
@@ -366,19 +508,23 @@
             </div>
             {ItemAttentionTag}
             {block:PurchaseForm}
-                {ItemSelectTag}
-                {block:AppsCommunity}{CommunityPurchaseButton}{/block:AppsCommunity}
-                {AppsAgeVerificationWarningTag}
-                {PurchaseButton}
-                <div class="floatPurchaseButton">{PurchaseButton}</div>
+            {ItemSelectTag}
+            {block:AppsCommunity}{CommunityPurchaseButton}{/block:AppsCommunity}
+            {AppsAgeVerificationWarningTag}
+            {PurchaseButton}
+            <div class="floatPurchaseButton">{PurchaseButton}</div>
             {/block:PurchaseForm}
             <div class="shareButtons">
                 {SocialButtonTag}
                 <div class="twitter">
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="{ItemRedirectUrl}" data-lang="ja" data-hashtags="{TwitterDataHashtags}" data-via="{TwitterDataVia}">{lang:Tweet}</a>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="{ItemRedirectUrl}"
+                        data-lang="ja" data-hashtags="{TwitterDataHashtags}"
+                        data-via="{TwitterDataVia}">{lang:Tweet}</a>
                 </div>
                 <div class="facebook">
-                    <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">シェア</a></div>
+                    <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+                        <a class="fb-xfbml-parse-ignore" target="_blank"
+                            href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">シェア</a></div>
                 </div>
                 {EmbedWidgetTag}
             </div>
@@ -394,14 +540,15 @@
     <!-- 商品ページ専用JSライブラリ -->
     <script src="https://cdn.jsdelivr.net/gh/jackmoore/colorbox@1.6.4/jquery.colorbox-min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/stevenwanderski/bxslider-4@4.2.15/dist/jquery.bxslider.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/malihu/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/malihu/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-{/block:ItemPage}
+    {/block:ItemPage}
 
-<!-- ============================================================ -->
-<!-- ABOUTページ                                                   -->
-<!-- ============================================================ -->
-{block:AboutPage}
+    <!-- ============================================================ -->
+    <!-- ABOUTページ                                                   -->
+    <!-- ============================================================ -->
+    {block:AboutPage}
     <div class="main">
         <div id="about">
             <h2>about</h2>
@@ -409,117 +556,167 @@
             <div class="social">
                 <ul class="clearfix">
                     {block:ShopInstagramId}
-                    <li><a href="https://www.instagram.com/{ShopInstagramId}" target="_blank"><img src="/img/shop/igicon.png" height="30" width="30"></a></li>
+                    <li><a href="https://www.instagram.com/{ShopInstagramId}" target="_blank"><img
+                                src="/img/shop/igicon.png" height="30" width="30"></a></li>
                     {/block:ShopInstagramId}
                     {block:ShopTwitterId}
-                    <li class="tw"><a href="https://twitter.com/{ShopTwitterId}" target="_blank"><img src="/img/shop/twicon.png" height="30" width="30"></a></li>
+                    <li class="tw"><a href="https://twitter.com/{ShopTwitterId}" target="_blank"><img
+                                src="/img/shop/twicon.png" height="30" width="30"></a></li>
                     {/block:ShopTwitterId}
                     {block:ShopLineId}
-                    <li><a href="https://line.me/R/ti/p/%40{ShopLineId}" target="_blank"><img src="/img/shop/lineicon.png" height="30" width="30"></a></li>
+                    <li><a href="https://line.me/R/ti/p/%40{ShopLineId}" target="_blank"><img
+                                src="/img/shop/lineicon.png" height="30" width="30"></a></li>
                     {/block:ShopLineId}
                     {block:ShopFacebookId}
-                    <li><a href="https://www.facebook.com/{ShopFacebookId}" target="_blank"><img src="/img/shop/fbicon.png" height="30" width="30"></a></li>
+                    <li><a href="https://www.facebook.com/{ShopFacebookId}" target="_blank"><img
+                                src="/img/shop/fbicon.png" height="30" width="30"></a></li>
                     {/block:ShopFacebookId}
                     {block:ShopYoutubeId}
-                    <li><a href="{ShopYoutubeId}" target="_blank"><img src="/img/shop/youtubeicon.png" height="30" width="30"></a></li>
+                    <li><a href="{ShopYoutubeId}" target="_blank"><img src="/img/shop/youtubeicon.png" height="30"
+                                width="30"></a></li>
                     {/block:ShopYoutubeId}
                     {block:ShopTiktokId}
-                    <li><a href="https://tiktok.com/@{ShopTiktokId}" target="_blank"><img src="/img/shop/tiktokicon_black.png" height="30" width="30"></a></li>
+                    <li><a href="https://tiktok.com/@{ShopTiktokId}" target="_blank"><img
+                                src="/img/shop/tiktokicon_black.png" height="30" width="30"></a></li>
                     {/block:ShopTiktokId}
                     {block:ShopNoteId}
-                    <li><a href="https://note.com/{ShopNoteId}" target="_blank"><img src="/img/shop/noteicon.png" height="30" width="30"></a></li>
+                    <li><a href="https://note.com/{ShopNoteId}" target="_blank"><img src="/img/shop/noteicon.png"
+                                height="30" width="30"></a></li>
                     {/block:ShopNoteId}
                     {block:ShopAmebaId}
-                    <li><a href="https://ameblo.jp/{ShopAmebaId}" target="_blank"><img src="/img/shop/ambicon.png" height="30" width="30"></a></li>
+                    <li><a href="https://ameblo.jp/{ShopAmebaId}" target="_blank"><img src="/img/shop/ambicon.png"
+                                height="30" width="30"></a></li>
                     {/block:ShopAmebaId}
                 </ul>
             </div>
         </div>
     </div>
-{/block:AboutPage}
+    {/block:AboutPage}
 
-{PageContents}
+    {PageContents}
 
-<!-- 共通フッター -->
-<footer id="mainFooter" class="wrapper clearfix">
-    <div class="footerMenu">
-        <ul class="clearfix">
-            <li><a class="footerNav" href="{PrivacyPageURL}">{lang:Privacy}</a></li>
-            <li><a class="footerNav" href="{LawPageURL}">{lang:Law}</a></li>
-            {block:AppsMembership}
+    <!-- 共通フッター -->
+    <footer id="mainFooter" class="wrapper clearfix">
+        <div class="footerMenu">
+            <ul class="clearfix">
+                <li><a class="footerNav" href="{PrivacyPageURL}">{lang:Privacy}</a></li>
+                <li><a class="footerNav" href="{LawPageURL}">{lang:Law}</a></li>
+                {block:AppsMembership}
                 <li><a class="footerNav" href="https://thebase.com/pages/shop_membership_term">会員規約</a></li>
-            {/block:AppsMembership}
-            <li class="boxRight">
-                <div>
-                    <div class="fb sns">
-                        <div class="fb-share-button" data-href="{ShopURL}/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">シェア</a></div>
+                {/block:AppsMembership}
+                <li class="boxRight">
+                    <div>
+                        <div class="fb sns">
+                            <div class="fb-share-button" data-href="{ShopURL}/" data-layout="button_count"
+                                data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore"
+                                    target="_blank"
+                                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">シェア</a>
+                            </div>
+                        </div>
+                        <div class="twitter sns">
+                            <a href="https://twitter.com/share" class="twitter-share-button"
+                                data-url="{ShopRedirectUrl}" data-lang="ja" data-hashtags="{TwitterDataHashtags}"
+                                data-via="{TwitterDataVia}" data-text="{ShopName}">{lang:Tweet}</a>
+                        </div>
                     </div>
-                    <div class="twitter sns">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="{ShopRedirectUrl}" data-lang="ja" data-hashtags="{TwitterDataHashtags}" data-via="{TwitterDataVia}" data-text="{ShopName}">{lang:Tweet}</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-</footer>
+                </li>
+            </ul>
+        </div>
+    </footer>
 
-<input id="base_url" type="hidden" value="{ShopURL}">
+    <input id="base_url" type="hidden" value="{ShopURL}">
 
-<!-- Facebook SDK -->
-<div id="fb-root"></div>
-<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src='//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=350947278320210&version=v2.0';fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = '//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=350947278320210&version=v2.0'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
 
-<!-- Twitter Widgets -->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
+    <!-- Twitter Widgets -->
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
 
-<!-- カスタムJS (jsDelivr CDN) -->
-<script src="%%JS_URL%%"></script>
+    <!-- カスタムJS (jsDelivr CDN) -->
+    <script src="%%JS_URL%%"></script>
+    <!-- 元素キューブ強制表示制御（外部CSS上書き対策用） -->
+    <style type="text/css">
+        /* デフォルト非表示化（CDNキャッシュ対策として強制的に隠す） */
+        .content-for-elemnt-cube,
+        .set9,
+        .set16,
+        .set25 {
+            display: none !important;
+        }
+
+        /* BASE独自の {ItemId} クラスが存在する場合のみ表示 */
+        .product-87999715 .content-for-elemnt-cube,
+        .product-115127926 .content-for-elemnt-cube,
+        .product-115127875 .content-for-elemnt-cube { display: block !important; }
+        
+        .product-87999715 .not-content-for-elemnt-cube,
+        .product-115127926 .not-content-for-elemnt-cube,
+        .product-115127875 .not-content-for-elemnt-cube { display: none !important; }
+        
+        .product-87999715 #shopHeader,
+        .product-115127926 #shopHeader,
+        .product-115127875 #shopHeader { display: none !important; }
+
+        /* 商品IDごとのセット画像切り替え */
+        .product-115127875 .set9  { display: block !important; }
+        .product-87999715  .set16 { display: block !important; }
+        .product-115127926 .set25 { display: block !important; }
+    </style>
 </body>
+
 </html>
 {/block:NotLoadItemsPage}
 
 {block:LoadItemsPage}
 {block:Items}
-    <div class="item part">
-        <div class="itemImg">
-            <a href="{ItemPageURL}">
-                {block:AppsItemLabel}{AppsItemLabelTag}{/block:AppsItemLabel}
-                <img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
-                {block:ItemNowOnSale}{block:NoItemStock}<div class="soldout_cover"><p>SOLD OUT</p></div>{/block:NoItemStock}{/block:ItemNowOnSale}
-                {block:ItemEndOfSale}<div class="soldout_cover"><p>SOLD OUT</p></div>{/block:ItemEndOfSale}
-            </a>
-        </div>
+<div class="item part">
+    <div class="itemImg">
         <a href="{ItemPageURL}">
-            <div class="itemTitle"><h2>{ItemTitle}</h2></div>
-            <ul class="itemDetail">
-                {block:NoItemProperPrice}<li class="itemPrice">{ItemPrice}</li>{/block:NoItemProperPrice}
-                {block:HasItemProperPrice}
-                <li class="discountPrice">
-                    <span class="discountPrice__ratio">{ItemDiscountRate}</span>
-                    <span class="discountPrice__calcPrice">{ItemPrice}</span>
-                </li>
-                {/block:HasItemProperPrice}
-            </ul>
-            {block:HasItemStock}
-                {block:ItemWatingForSale}<p class="comingSoon">COMING SOON</p>{/block:ItemWatingForSale}
-                {block:ItemNowOnSale}
-                    {block:ItemPreOrder}<p class="preOrder">{lang:PreOrderItem}</p>{/block:ItemPreOrder}
-                    {block:ItemLottery}<p class="lottery">{lang:LotteryItem}</p>{/block:ItemLottery}
-                    {block:ItemTakeout}<p class="takeout">{lang:TakeoutItem}</p>{/block:ItemTakeout}
-                    {block:ItemCommunityLimited}<p class="community">{lang:CommunityLimitedItem}</p>{/block:ItemCommunityLimited}
-                {/block:ItemNowOnSale}
-            {/block:HasItemStock}
-            {block:NoItemStock}
-                {block:ItemWatingForSale}<p class="comingSoon">COMING SOON</p>{/block:ItemWatingForSale}
-            {/block:NoItemStock}
+            {block:AppsItemLabel}{AppsItemLabelTag}{/block:AppsItemLabel}
+            <img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}"
+                alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
+            {block:ItemNowOnSale}{block:NoItemStock}<div class="soldout_cover">
+                <p>SOLD OUT</p>
+            </div>{/block:NoItemStock}{/block:ItemNowOnSale}
+            {block:ItemEndOfSale}<div class="soldout_cover">
+                <p>SOLD OUT</p>
+            </div>{/block:ItemEndOfSale}
         </a>
     </div>
+    <a href="{ItemPageURL}">
+        <div class="itemTitle">
+            <h2>{ItemTitle}</h2>
+        </div>
+        <ul class="itemDetail">
+            {block:NoItemProperPrice}<li class="itemPrice">{ItemPrice}</li>{/block:NoItemProperPrice}
+            {block:HasItemProperPrice}
+            <li class="discountPrice">
+                <span class="discountPrice__ratio">{ItemDiscountRate}</span>
+                <span class="discountPrice__calcPrice">{ItemPrice}</span>
+            </li>
+            {/block:HasItemProperPrice}
+        </ul>
+        {block:HasItemStock}
+        {block:ItemWatingForSale}<p class="comingSoon">COMING SOON</p>{/block:ItemWatingForSale}
+        {block:ItemNowOnSale}
+        {block:ItemPreOrder}<p class="preOrder">{lang:PreOrderItem}</p>{/block:ItemPreOrder}
+        {block:ItemLottery}<p class="lottery">{lang:LotteryItem}</p>{/block:ItemLottery}
+        {block:ItemTakeout}<p class="takeout">{lang:TakeoutItem}</p>{/block:ItemTakeout}
+        {block:ItemCommunityLimited}<p class="community">{lang:CommunityLimitedItem}</p>{/block:ItemCommunityLimited}
+        {/block:ItemNowOnSale}
+        {/block:HasItemStock}
+        {block:NoItemStock}
+        {block:ItemWatingForSale}<p class="comingSoon">COMING SOON</p>{/block:ItemWatingForSale}
+        {/block:NoItemStock}
+    </a>
+</div>
 {/block:Items}
 {/block:LoadItemsPage}
 
 {block:AppsSearch}
 <script>
-    $(function(){
+    $(function () {
         var _color = $('#x_iconSearch').css('color');
         $('#x_itemSearchForm').css('border-color', _color);
     });
