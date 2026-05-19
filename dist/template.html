@@ -8,15 +8,16 @@
     {FaviconTag}
     {CanonicalTag}
 
-    <!-- 外部CSS -->
+    <!-- 外部CSS（全ページ共通） -->
+    <link rel="stylesheet" href="https://camel-jp.github.io/element-cube-details/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jackmoore/colorbox@1.6.4/example1/colorbox.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
 
     {block:ItemPage}
         {MetaItemInfoTag}
         <!-- 商品ページ専用CSS -->
-        <link rel="stylesheet" href="https://camel-jp.github.io/element-cube-details/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/stevenwanderski/bxslider-4@4.2.15/dist/jquery.bxslider.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jackmoore/colorbox@1.6.4/example1/colorbox.css">
         <link rel="stylesheet" href="{BASEURL}/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/malihu/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.min.css">
         <!-- BASEデータ注入（script.js から参照、ItemPageのみで展開） -->

@@ -28,7 +28,7 @@
   // ============================================================
   function initSlider() {
     if (!$('#slideImg').length) return;
-    $(window).on('load', function () {
+    function run() {
       $('#slideImg').bxSlider({
         controls: false,
         pagerCustom: '#slideImgPager',
@@ -38,7 +38,13 @@
       $('.ajax').on('click', function (e) { e.preventDefault(); });
       $('.ajax').colorbox({ className: 'itemCb', maxWidth: '90%', maxHeight: '90%', current: false });
       $('#slideImgPager').mCustomScrollbar({ axis: 'y', theme: 'inset-dark' });
-    });
+    }
+    // CDN経由で読み込む場合 window.load が既に発火済みの可能性があるため両方対応
+    if (document.readyState === 'complete') {
+      run();
+    } else {
+      $(window).on('load', run);
+    }
   }
 
   // ============================================================
