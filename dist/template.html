@@ -11,7 +11,6 @@
     {CanonicalTag}
 
     <!-- 外部CSS（全ページ共通） -->
-    <link rel="stylesheet" href="https://camel-jp.github.io/element-cube-details/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
 
@@ -26,7 +25,7 @@
         href="https://cdn.jsdelivr.net/gh/malihu/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.min.css">
     <!-- BASEデータ注入（script.js から参照、ItemPageのみで展開） -->
     <script>
-        window.BASE_ITEM = { id: { ItemId }, price: "{ItemPrice}", stock: { ItemStock } };
+        window.BASE_ITEM = { id: {ItemId}, price: "{ItemPrice}", stock: {ItemStock} };
         document.addEventListener('DOMContentLoaded', function () {
             document.body.classList.add('product-' + window.BASE_ITEM.id);
         });
@@ -137,7 +136,7 @@
     <!-- ショップ共通ヘッダー -->
     <header id="mainHeader" class="wrapper product-{ItemId}">
         <div id="shopHeader">
-            <h1 class="not-content-for-elemnt-cube"><a href="{IndexPageURL}" id="logo">{LogoTag}</a></h1>
+            <h1 class="ec-hidden"><a href="{IndexPageURL}" id="logo">{LogoTag}</a></h1>
             <nav>
                 <ul>
                     <li><a class="mainHeaderNavColor" href="{IndexPageURL}">HOME</a></li>
@@ -293,7 +292,7 @@
     {block:ItemPage}
 
     <!-- LP ヘッダー（元素キューブ商品のみ表示） -->
-    <header class="header content-for-elemnt-cube">
+    <header class="header ec-content">
         <div class="container">
             <div class="logo">
                 <h1>{ItemTitle}</h1>
@@ -638,7 +637,7 @@
     <!-- 元素キューブ強制表示制御（外部CSS上書き対策用） -->
     <style type="text/css">
         /* デフォルト非表示化（CDNキャッシュ対策として強制的に隠す） */
-        .content-for-elemnt-cube,
+        .ec-content,
         .set9,
         .set16,
         .set25 {
@@ -646,14 +645,14 @@
         }
 
         /* BASE独自の {ItemId} クラスが存在する場合のみ表示 */
-        .product-87999715 .content-for-elemnt-cube,
-        .product-115127926 .content-for-elemnt-cube,
-        .product-115127875 .content-for-elemnt-cube { display: block !important; }
-        
-        .product-87999715 .not-content-for-elemnt-cube,
-        .product-115127926 .not-content-for-elemnt-cube,
-        .product-115127875 .not-content-for-elemnt-cube { display: none !important; }
-        
+        .product-87999715 .ec-content,
+        .product-115127926 .ec-content,
+        .product-115127875 .ec-content { display: block !important; }
+
+        .product-87999715 .ec-hidden,
+        .product-115127926 .ec-hidden,
+        .product-115127875 .ec-hidden { display: none !important; }
+
         .product-87999715 #shopHeader,
         .product-115127926 #shopHeader,
         .product-115127875 #shopHeader { display: none !important; }
