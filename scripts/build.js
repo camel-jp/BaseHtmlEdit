@@ -48,7 +48,18 @@ function build() {
   fs.writeFileSync(path.join(DIST, 'template.html'), html);
   console.log('✓ HTML generated →  dist/template.html');
 
-  // 4. クリップボードへコピー（Windows のみ、CI はスキップ）
+  // 4. LP フラグメントをコピー（src/lp/ → dist/lp/）
+  const srcLp  = path.join(SRC, 'lp');
+  const distLp = path.join(DIST, 'lp');
+  if (fs.existsSync(srcLp)) {
+    fs.mkdirSync(distLp, { recursive: true });
+    for (const file of fs.readdirSync(srcLp)) {
+      fs.copyFileSync(path.join(srcLp, file), path.join(distLp, file));
+    }
+    console.log('✓ LP copied     →  dist/lp/');
+  }
+
+  // 5. クリップボードへコピー（Windows のみ、CI はスキップ）
   if (process.env.CI) return;
   try {
     const proc = spawn(

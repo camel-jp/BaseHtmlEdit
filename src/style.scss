@@ -1,7 +1,53 @@
 // ============================================================
-// BASE テンプレート カスタムオーバーライド
-// ベーススタイルはテンプレート HTML 内の <style> タグに含まれているため、
-// このファイルにはカスタマイズ・追加スタイルのみを記述する。
+// BaseHtmlEdit カスタム CSS
+// ベース: https://camel-jp.github.io/element-cube-details/style.css
+// このファイルはその上に積み上げるオーバーライド・追加スタイル
 // ============================================================
+
+// ---- 元素キューブ LP 商品 ID ----
+// 87999715  = 16種セット
+// 115127926 = 25種セット
+// 115127875 = 9種セット
+
+// ---- 通常コンテンツ / LP コンテンツ 切り替え ----
+
+// LP コンテンツはデフォルト非表示
+.content-for-elemnt-cube { display: none; }
+
+// 元素キューブ商品では LP を表示、通常ヘッダーを非表示
+body.product-87999715,
+body.product-115127926,
+body.product-115127875 {
+    .content-for-elemnt-cube { display: block; }
+    .not-content-for-elemnt-cube { display: none; }
+    #shopHeader { display: none; }
+}
+
+// ---- セット別コンテンツ切り替え ----
+.set9, .set16, .set25 { display: none; }
+
+body.product-115127875 .set9  { display: block; }
+body.product-87999715  .set16 { display: block; }
+body.product-115127926 .set25 { display: block; }
+
+// ---- LP ヘッダー ----
+.header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+// ---- ヒーロー ----
+.hero { margin-top: 100px; }
+
+// ---- セクション共通 ----
+.section-image {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+}
+
+// ---- 準備中コンテンツ ----
+.preparation { display: none; }
 
 // ---- ここにカスタムスタイルを追加 ----

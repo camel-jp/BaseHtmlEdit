@@ -210,6 +210,9 @@ function resolveVars(html, page) {
     .replace(/{IndexPageSearch}/g,     '')
     // BASEURL（画像・CSS パスのベース）
     .replace(/{BASEURL}/g, 'https://thebase.in')
+    // 商品 ID / 在庫数（元素キューブ LP 動作確認用: 87999715 = 16種セット）
+    .replace(/{ItemId}/g,             '87999715')
+    .replace(/{ItemStock}/g,          '50')
     // 商品詳細
     .replace(/{ItemTitle}/g,          detail.title)
     .replace(/{ItemPrice}/g,          detail.price)
@@ -303,6 +306,17 @@ http.createServer((req, res) => {
   if (pathname === '/script.js') {
     res.writeHead(200, { 'Content-Type': 'application/javascript' });
     res.end(fs.readFileSync(path.join(SRC, 'script.js'), 'utf-8'));
+    return;
+  }
+
+  if (pathname === '/lp/element-cube.html') {
+    const lpPath = path.join(SRC, 'lp', 'element-cube.html');
+    if (fs.existsSync(lpPath)) {
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      res.end(fs.readFileSync(lpPath, 'utf-8'));
+    } else {
+      res.writeHead(404); res.end('LP file not found');
+    }
     return;
   }
 
