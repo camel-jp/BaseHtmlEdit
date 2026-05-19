@@ -1,0 +1,1686 @@
+{block:NotLoadItemsPage}
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="copyright" content="BASE">
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{PageTitle}</title>
+    {FaviconTag}
+    {CanonicalTag}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        @import url("https://camel-jp.github.io/element-cube-details/style.css");
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jackmoore/colorbox@1.6.4/example1/colorbox.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
+        .hero {
+            margin-top: 100px;
+        }
+        .hero::before {
+            background-image: url({ItemImage1URL-origin});
+        }
+        /* 商品が元素標本キューブセットのときだけ非表示 */
+        .product-87999715 .not-content-for-elemnt-cube, .not-product-115127926 .not-content-for-elemnt-cube, .product-115127875 .not-content-for-elemnt-cube {
+            display: none;
+        }
+
+        /* 商品が元素標本キューブセットのときだけ非表示 */
+        .product-87999715 #shopHeader, .product-115127926 #shopHeader, .product-115127875 #shopHeader{
+            display: none;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+        }
+
+        .section-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+        }
+
+        /* デフォルトでは非表示 */
+        .content-for-elemnt-cube {
+            display: none;
+        }
+
+        /* 商品が元素標本キューブセットのときだけ表示 */
+        .product-87999715 .content-for-elemnt-cube, .product-115127926 .content-for-elemnt-cube, .product-115127875 .content-for-elemnt-cube {
+            display: block;
+        }
+
+        /* セット毎に異なるコンテンツ デフォルトでは非表示 */
+        .set9, .set16, .set25 {
+            display: none;
+        }
+
+        /* 9種セットの時だけ表示 */
+        .product-115127875 .set9{
+            display: block;
+        }
+
+        /* 16種セットの時だけ表示 */
+        .product-87999715 .set16{
+            display: block;
+        }
+
+        /* 25種セットの時だけ表示 */
+        .product-115127926 .set25{
+            display: block;
+        }
+        /* 準備中 */
+        .preparation {
+            display: none;
+        }
+        
+    </style>
+
+    {block:IndexPage}
+        {HeadLinkNextPrevTag}
+    {/block:IndexPage}
+
+    {BackgroundTag}
+    <style type="text/css">
+        {block:NavColor}
+        .childCategoryList01_child,
+        .childCategoryList01_link,
+        .mainHeaderNavColor,
+        .appsItemCategoryTag_lowerLink,
+        .categoryTitle01,
+        .footerNav {
+            color: {NavColor};
+        }
+        {/block:NavColor}
+    </style>
+
+    {block:ItemPage}
+        {MetaItemInfoTag}
+        <link rel="stylesheet" href="{BASEURL}/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/malihu/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.min.css">
+    {/block:ItemPage}
+
+    {block:NotItemPage}
+        {MetaShopInfoTag}
+    {/block:NotItemPage}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jimyi/jquery_bottom@1b7e2204c9193647884581804011ceb5d1d95aac/jquery.bottom-1.0.min.js"></script>
+    <script src="{BASEURL}/js/change_status.js?{UpdateTime}"></script>
+
+    {GoogleAnalyticsTag}
+
+    {block:AppsSearch}
+        <link rel="stylesheet" type="text/css" href="{BASEURL}/search/css/shopTemplate/search.css?{UpdateTime}">
+    {/block:AppsSearch}
+
+    {block:AppsItemLabel}
+        <link rel="stylesheet" type="text/css" href="{BASEURL}/item_label/css/ShopTemplate/style.css?{UpdateTime}">
+        <script type="text/javascript" src="{BASEURL}/item_label/js/ShopTemplate/labelpostion.js?{UpdateTime}"></script>
+    {/block:AppsItemLabel}
+
+    {block:AppsBlog}
+        <link href="{BlogFeedPageURL}" rel="alternate" type="application/rss+xml" title="Blog | {ShopName}">
+    {/block:AppsBlog}
+    <!-- Twitter conversion tracking base code -->
+    <script>
+        !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+        },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+        a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+        twq('config','omrti');
+    </script>
+    <!-- End Twitter conversion tracking base code -->
+</head>
+<body id="{block:IndexPage}shopTopPage{/block:IndexPage}{block:ItemPage}shopDetailPage{/block:ItemPage}" class="shop template">
+{block:AppsInformationBanner}
+    {AppsInformationBannerTag}
+    <script type="text/javascript">
+        window.addEventListener('DOMContentLoaded', function() {
+            const banner = document.getElementsByClassName('informationBanner');
+            if (!banner || banner.length === 0) return;
+
+            const resizeObserver = new ResizeObserver(entries => {
+                for (let entry of entries) {
+                    const bannerHeight = entry.target.offsetHeight;
+                    document.documentElement.style.setProperty("--information-banner-height", bannerHeight + 'px');
+                }
+            });
+            resizeObserver.observe(banner[0]);
+        });
+    </script>
+{/block:AppsInformationBanner}
+{block:AppsI18n}{AppsI18nTag}{/block:AppsI18n}
+{BASEMenuTag}
+{block:IndexPage}
+    <span id="max_page" style="display: none;">{MaxPageNumber}</span>
+    <span id="next_page" style="display: none;">{NextPageNumber}</span>
+{/block:IndexPage}
+<header id="mainHeader" class="wrapper product-{ItemId}">
+    <div id="shopHeader">
+        <h1 class="not-content-for-elemnt-cube"><a href="{IndexPageURL}" id="logo">{LogoTag}</a></h1>
+        <nav>
+            <ul>
+                <li><a class="mainHeaderNavColor" href="{IndexPageURL}">HOME</a></li>
+                <li><a class="mainHeaderNavColor" href="{AboutPageURL}">ABOUT</a></li>
+                {block:AppsBlog}
+                    <li><a class="mainHeaderNavColor" href="{BlogPageURL}">BLOG</a></li>
+                {/block:AppsBlog}
+                {block:AppsItemCategory}
+                    <li>
+                        <div id="category-menu">
+                            <span class="mainHeaderNavColor">category</span>
+                            <div class="category-list">
+                                {AppsItemCategoryCategoriesTag}
+                            </div>
+                        </div>
+                    </li>
+                {/block:AppsItemCategory}
+                {block:AppsCommunity}
+                    <li><a class="mainHeaderNavColor" href="{CommunityPageURL}">COMMUNITY</a></li>
+                {/block:AppsCommunity}
+                {block:AppsMembership}
+                    <li><a class="mainHeaderNavColor" href="{MembershipPageURL}">MEMBERSHIP</a></li>
+                    <li><a class="mainHeaderNavColor" href="{MembershipMyPageURL}">MYPAGE</a></li>
+                {/block:AppsMembership}
+                <li><a class="mainHeaderNavColor" href="{ContactPageURL}">CONTACT</a></li>
+                {block:AppsSearch}
+                    <li class="column itemSearch">
+                        <form id="x_itemSearchForm" class="itemSearch__form" action="{SearchPageURL}" method="get">
+                            <input class="itemSearch__field" type="text" name="q" placeholder="SEARCH" value="{IndexPageSearch}">
+                            <button class="itemSearch__btn" type="submit"><span id="x_iconSearch" class="mainHeaderNavColor si-search"></span></button>
+                        </form>
+                    </li>
+                {/block:AppsSearch}
+                <li><a class="mainHeaderNavColor" href="https://camel-jp.github.io/element-cube-details/">元素の解説</a></li>
+            </ul>
+        </nav>
+        {block:AppsItemCategory}{block:IndexPageCategory}
+            <h2 class="categoryTitle01">{IndexPageCategory}</h2>
+            {block:HasAppsItemCategoryChildCategories}
+                <ul class="childCategoryList01">
+                    {block:AppsItemCategoryChildCategories}
+                    <li class="childCategoryList01_child"><a href="{AppsItemCategoryChildCategoryPageURL}" class="childCategoryList01_link">{AppsItemCategoryChildCategoryName}</a></li>
+                    {/block:AppsItemCategoryChildCategories}
+                </ul>
+            {/block:HasAppsItemCategoryChildCategories}
+        {/block:IndexPageCategory}{/block:AppsItemCategory}
+    </div>
+</header>
+{block:IndexPage}
+    {block:NotShopPublic}
+        <p style="text-align: center;">{lang:NotShopPublicMessage}</p>
+    {/block:NotShopPublic}
+    {block:ShopPublic}
+        {block:AppsBlogArticleIsPinned}{block:NoIndexPageCategory}{block:NoIndexPageSearch}
+            <div class="pinnedBlog">
+                <p class="pinnedBlog_title mainHeaderNavColor">
+                    <a href="{AppsBlogArticlePageURL}">{AppsBlogArticleTitle}</a>
+                </p>
+            </div>
+        {/block:NoIndexPageSearch}{/block:NoIndexPageCategory}{/block:AppsBlogArticleIsPinned}
+
+        {block:IndexPageSearch}
+            <h3 class="mainHeaderNavColor titleForSearchResult">{lang:ItemSearchResult}</h3>
+        {/block:IndexPageSearch}
+
+        {block:HasItems}
+            <section id="mainContent" class="itemList clearfix">
+                {block:Items}
+                <div class="item part">
+                    <div class="itemImg">
+                        <a href="{ItemPageURL}">
+                            {block:AppsItemLabel}
+                                {AppsItemLabelTag}
+                            {/block:AppsItemLabel}
+                            <img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
+                            {block:ItemNowOnSale}
+                                {block:NoItemStock}
+                                    <div class="soldout_cover"><p>SOLD OUT</p></div>
+                                {/block:NoItemStock}
+                            {/block:ItemNowOnSale}
+                            {block:ItemEndOfSale}
+                                <div class="soldout_cover"><p>SOLD OUT</p></div>
+                            {/block:ItemEndOfSale}
+                        </a>
+                    </div>
+                    <a href="{ItemPageURL}">
+                        <div class="itemTitle">
+                            <h2>{ItemTitle}</h2>
+                        </div>
+                        <ul class="itemDetail">
+                            {block:NoItemProperPrice}
+                            <!-- 定価 -->
+                            <li class="itemPrice">{ItemPrice}</li>
+                            {/block:NoItemProperPrice}
+                            {block:HasItemProperPrice}
+                            <!-- 割引 -->
+                            <li class="discountPrice">
+                                <span class="discountPrice__ratio">{ItemDiscountRate}</span>
+                                <span class="discountPrice__calcPrice">{ItemPrice}</span>
+                            </li>
+                            {/block:HasItemProperPrice}
+                        </ul>
+                        {block:HasItemStock}
+                            {block:ItemWatingForSale}
+                                <p class="comingSoon">COMING SOON</p>
+                            {/block:ItemWatingForSale}
+                            {block:ItemNowOnSale}{block:ItemPreOrder}
+                                <p class="preOrder">{lang:PreOrderItem}</p>
+                            {/block:ItemPreOrder}{block:ItemLottery}
+                                <p class="lottery">{lang:LotteryItem}</p>
+                            {/block:ItemLottery}{block:ItemTakeout}
+                                <p class="takeout">{lang:TakeoutItem}</p>
+                            {/block:ItemTakeout}{block:ItemCommunityLimited}
+                                <p class="community">{lang:CommunityLimitedItem}</p>
+                            {/block:ItemCommunityLimited}{/block:ItemNowOnSale}
+                        {/block:HasItemStock}
+                        {block:NoItemStock}
+                            {block:ItemWatingForSale}
+                                <p class="comingSoon">COMING SOON</p>
+                            {/block:ItemWatingForSale}
+                        {/block:NoItemStock}
+                    </a>
+                </div>
+                {/block:Items}
+            </section>
+            <div id="loading" style="display: none;text-align: center;"><img src="/img/loading.gif" width="220" style="padding: 20px 0;;"></div>
+        {/block:HasItems}
+        {block:NoItems}
+            <p style="text-align: center;">{lang:NoItemsMessage}</p>
+        {/block:NoItems}
+    {/block:ShopPublic}
+    <script type="text/javascript">
+        var process_flg = false;
+        var end_flg = false;
+        $(window).bottom({proximity: 0.05});
+        $(window).on('bottom', function() {
+            if (process_flg == false && end_flg == false) {
+                var max_page = $("#max_page").text();
+                var next_page = $('#next_page').text();
+                if (eval(max_page) >= eval(next_page)) {
+                    $.ajax({
+                        url: "{LoadItemsPageURL}" + next_page + "{LoadItemsPageURLParams}",
+                        dataType: 'html',
+                        beforeSend: function () {
+                            process_flg = true;
+                            $('#loading').css('display', 'block');
+                        },
+                        success: function (data) {
+                            $('#mainContent').append(data);
+                            next_page = eval(next_page) + 1;
+                            $('#next_page').text(next_page);
+                        },
+                        complete: function () {
+                            process_flg = false;
+                            $('#loading').css('display', 'none');
+                        }
+                    });
+                } else {
+                    end_flg = true;
+                }
+            }
+        });
+    </script>
+{/block:IndexPage}
+{block:ItemPage}
+<header class="header product-{ItemId}"><div class="content-for-elemnt-cube">
+    <div class="container">
+        <div class="logo">
+            <h1>{ItemTitle}</h1>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#product">商品概要</a></li>
+                <li><a href="#experience">体験</a></li>
+                <li><a href="#reviews">レビュー</a></li>
+                <li><a href="#details">詳細</a></li>
+            </ul>
+        </nav>
+    </div>
+</div></header>
+
+<div class="product-{ItemId}">
+    <!-- ヒーローセクション -->
+    <section class="hero content-for-elemnt-cube">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title set9">未来を創る、<br>9種のレアメタル。<br>深化する元素標本キューブ</h1>
+                <h1 class="hero-title set16 set25">宇宙を構成する<br>「究極のピース」をその手に。</h1>
+                <p class="hero-subtitle set9">本物の元素を1cm角に凝縮。<br>待望の追加セット。</p>
+                <p class="hero-subtitle set16 set25">本物の元素を1cm角に凝縮。<br>教科書では味わえない重さ・質感を体験できます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 製品価値の説明 -->
+    <section id="product" class="product-value content-for-elemnt-cube">
+        <img class="section-image set16" src="https://basefile.akamaized.net/budouya-base-ec/69300c685728f/Image_20251203_190456.jpeg">
+        <img class="section-image set9" src="https://basefile.akamaized.net/budouya-base-ec/696b6a73ac13e/Gemini_Generated_Image_n9mjrhn9mjrhn9mja28129.png">
+        <img class="section-image set25" src="https://basefile.akamaized.net/budouya-base-ec/696b6a5496a2e/Gemini_Generated_Image_d90fa7d90fa7d90fa2812928129.png">
+        <div class="container">
+            <h2 class="section-title set9">あなたのコレクションに9種類の希少元素を</h2>
+            <h2 class="section-title set16 set25">知識を裏切る、圧倒的な「質感」の体験。</h2>
+            <p class="section-intro set9">
+                私たちの身の回りのすべては元素。<br><br>
+                その中には微量しか存在しないにも関わらず、現代のテクノロジーを支え、未来を形作る希少な元素たちがあります。<br><br>
+                この9種の元素標本キューブセットは、地球上の存在比率0.001％以下、そして現代に欠かせないレアメタルのみを集めました。「知る人ぞ知る世界」をあなたのコレクションに加える特別なセレクションです。<br><br>
+                科学の最先端で輝く元素たちの、確かな重みと質感を五感で体験し、あなたの探求心をさらに深化させてください。<br>
+            </p>
+            <p class="section-intro set16 set25">
+                周期表の元素に実際に触れたことはありますか？<br><br>
+                自分の手で確かめると意外な重さや質感の違いに驚くはずです。<br><br>
+                鉛の2倍以上重いタングステン、吹けば飛びそうに軽いマグネシウム。<br><br>
+                同じ1cm角なのに、脳が混乱するほどの「密度」「質感」の違いを感じられます。<br>
+            </p>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>本物の高純度元素</h3>
+                        <p>材料系専門の工場と提携し、メッキや合金模ではなく、表示通りの元素であることを保証します。サイズを厳密に1cm角に限定しているため、偽の合金で色と重さを再現することが不可能になっています。</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>元素そのものを五感で</h3>
+                        <p class="set16 set25">元素キューブは無塗装のため、密度がそのまま1個の重さ(g)になっています。タングステンの重さとアルミニウムの軽さ、その違いを手のひらで直接感じることができます。</p>
+                        <p class="set9">元素キューブは無塗装のため、密度がそのまま1個の重さ(g)になっています。爪で傷がつくほど柔らかい金属であるインジウムの柔らかさと、工具鋼にも使われるバナジウムとの硬さ、その違いを指先で直接感じ取ることができます。</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>精密な加工による情報表示</h3>
+                        <p>表面には成分を変えないようレーザー彫刻による印字を施し、元素番号・元素記号・英語名・密度を表示。学術的にも正確な情報を提供します。ひっくり返せば無垢な面が現れるため、どの元素か質感と重さから当てるゲームができます(結構難しいです！)。</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>個別アクリルケース付き</h3>
+                        <p>各元素はアクリル製の個別ケースに収められ、保管と展示を兼ねています。透明なので、キューブを取り出さなくても鑑賞可能です。また全体を納める保管用の箱も付属します。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <h3>一般的な元素標本との比較</h3>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>特徴</th>
+                                <th>当店の元素標本キューブ</th>
+                                <th>一般的な元素標本</th>
+                                <!-- <th>プラスチックモデル</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>素材</td>
+                                <td>純度99.9％以上の本物の元素</td>
+                                <td>低純度(95%以下)または一部のみ本物</td>
+                                <!-- <td>プラスチック製模型</td> -->
+                            </tr>
+                            <tr>
+                                <td>触感</td>
+                                <td>実際の元素の質感や重さ</td>
+                                <td>塗装やコーティングで限定的</td>
+                                <!-- <td>再現なし</td> -->
+                            </tr>
+                            <tr>
+                                <td>学習価値</td>
+                                <td>見て、触れて、五感で学べる</td>
+                                <td>触れず視覚のみの場合あり</td>
+                                <!-- <td>視覚のみ</td> -->
+                            </tr>
+                            <tr>
+                                <td>保存性</td>
+                                <td>個別ケース・専用箱付き</td>
+                                <td>ケース無し</td>
+                                <!-- <td>一般的に低い</td> -->
+                            </tr>
+                            <tr>
+                                <td>拡張性</td>
+                                <td>全25種統一デザイン、随時追加予定</td>
+                                <td>10種程度、デザインに揺れあり</td>
+                                <!-- <td>低い</td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 没入型体験の紹介 -->
+    <section id="experience" class="immersive-experience content-for-elemnt-cube">
+        <div class="container">
+            <h2 class="section-title">五感で感じる元素の世界</h2>
+            <p class="section-intro">
+                元素標本キューブは、単なる展示品ではありません。それは、科学の世界への没入体験です。
+            </p>
+
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <img src="https://basefile.akamaized.net/budouya-base-ec/68c150015beb8/IMG_3395.jpg">
+                    <div class="experience-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>視覚で楽しむ</h3>
+                    <p class="set16 set25">銅の温かみのある赤褐色、クロムの冷たい銀色、ビスマスの独特の輝き。各元素が放つ固有の色彩と光沢は、自然界の芸術作品です。慣れたら裏返して見た目だけで当てるゲームをしてみましょう</p>
+                    <p class="set9">コバルトのわずかに青みを帯びた光沢。サマリウムのマットな質感。レアメタルの特徴的な材質に由来する独特の質感をお楽しみください。慣れたら裏返して見た目だけで当てるゲームをしてみましょう</p>
+                </div>
+                <div class="experience-item">
+                    <img src="https://basefile.akamaized.net/budouya-base-ec/68c152010c393/IMG_3117.jpg"><!-- 背景画像 -->
+                    <div class="experience-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <h3>触覚で確かめる</h3>
+                    <p class="set16 set25">手のひらに乗せた時の冷たさ、指先で感じる表面の質感。タングステンの驚くべき重さ（密度19.3g/cm³）とマグネシウムの意外な軽さ（密度1.74g/cm³）の対比は、言葉では表現できない発見です。</p>
+                    <p class="set9">爪で傷がつくほど柔らかい金属であるインジウムの柔らかさ。手のひらで温めると磁性を失うガドリニウム。レアメタル元素の持つ驚きの特性をあなたの手で感じて下さい。</p>
+                </div>
+                <div class="experience-item">
+                    <img src="https://basefile.akamaized.net/budouya-base-ec/68c159b277e33/E5908DE7A7B0E69CAAE8A8ADE5AE9AE381AEE38387E382B6E382A4E383B328529.jpg"><!-- 背景画像 -->
+                    <div class="experience-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>知性で深める</h3>
+                    <p class="set16 set25">各元素の発見の歴史、現代社会での利用法、宇宙における存在量。知識を深めることで、手のひらの小さなキューブが宇宙の物語を語り始めます。</p>
+                    <p class="set9">スマートフォンの透明な電極になるインジウム。光ファイバーの信号を増幅させるエルビウム。レアメタルの現代社会での利用法を知ることで、手のひらの小さなキューブに無限の可能性を感じ取れます。</p>
+                </div>
+            </div>
+
+            <div class="expert-opinion">
+                <blockquote>
+                    <p>"… what statement would contain the most information in the fewest words? I believe … <b>that all things are made of atoms</b> …"</p>
+                    <p>最も少ない言葉で最も多くの情報を含むのはどんな文章だろうか？<br>…私は、<b>「すべての物は原子からできている」</b>だと信じている…</p>
+                    <cite>- リチャード・P・ファインマン（物理学者、ノーベル物理学賞受賞者）</cite>
+                </blockquote>
+            </div>
+
+            <!-- <div class="video-container">
+                <div class="video-placeholder">
+                    <img src="https://via.placeholder.com/800x450" alt="元素キューブ体験動画">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <p class="video-caption">▲ 実際に手に取って重さや質感を確かめる様子</p>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- ターゲット別価値提案 -->
+    <section class="target-value content-for-elemnt-cube">
+        <div class="container">
+            <h2 class="section-title">それぞれの方へ</h2>
+            
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="collector">科学好きのあなた</button>
+                    <button class="tab-button" data-tab="educator">教育関係の方</button>
+                    <button class="tab-button" data-tab="parent">お子様へのプレゼント</button>
+                    <button class="tab-button" data-tab="gift">科学好きへのプレゼント</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="collector">
+                        <h3>所有欲を満たす、本物の元素</h3>
+                        <p>
+                            透明な立方体の中に封じ込められているのは、ただの金属ではありません<br><br>
+                            それは宇宙を形づくり、私たちの身体や文明を支えてきた「本物の元素」<br><br>
+                            教科書でしか見たことのない周期表の世界が、いま手のひらの中に現れます。<br><br>
+                        </p>
+                        <img src="https://basefile.akamaized.net/budouya-base-ec/68c153cd8f010/IMG_2968.jpg" alt="コレクション展示例">
+                    </div>
+                    
+                    <div class="tab-pane" id="educator">
+                        <h3>教育現場で活きる、触れる周期表</h3>
+                        <p>
+                            「百聞は一見に如かず、一見は一触に如かず」<br><br>
+                            教科書や画像だけでは伝わらない元素の個性を、学生たちに直接体験させることができます。密度の違いを実感できるこのキューブセットは、抽象的な概念を具体的な体験に変える強力な教材です。<br><br>
+                            化学の授業だけでなく、物理、材料科学、地球科学、さらには歴史の授業でも活用できます。元素の発見の歴史や産業革命における金属の役割など、学際的な学習を促進します。<br><br>
+                            耐久性のある設計で、何学年もの学生に科学の感動を伝え続けることができます。
+                        </p>
+                        <img src="https://basefile.akamaized.net/budouya-base-ec/68ad7635cf08f/E383ADE382B8E383A2E38397E383ADE381AEE382AEE38395E38388E383A9E38383E38394E383B3E382B028329.jpg" alt="教育現場での活用例">
+                    </div>
+                    
+                    <div class="tab-pane" id="parent">
+                        <h3>子どもの好奇心に火をつける、科学の贈り物</h3>
+                        <p>
+                            子どもの「なぜ？」という問いは、科学の始まりです。<br><br>
+                            この元素標本キューブは、抽象的な周期表を具体的な体験に変え、子どもの科学への興味を自然に育みます。重いタングステンと軽いアルミニウムの対比、銅の美しい色合い、それぞれの元素の特性を実感することで、教科書だけでは得られない深い理解が生まれます。<br><br>
+                            家族での科学探検の時間は、単なる学習以上の価値があります。それは、好奇心と探究心を育む大切な瞬間です。この小さなキューブが、未来の科学者、技術者、革新者への第一歩になるかもしれません。<br><br>
+                            適切な監督のもとでお子様と一緒に科学の不思議を探検できます。
+                        </p>
+                        <img src="https://basefile.akamaized.net/budouya-base-ec/68ad6bcb02786/E383ADE382B8E383A2E38397E383ADE381AEE382AEE38395E38388E383A9E38383E38394E383B3E382B028229.jpg" alt="家族での学習シーン">
+                    </div>
+                    
+                    <div class="tab-pane" id="gift">
+                        <h3>忘れられない贈り物、語り継がれる感動</h3>
+                        <p>
+                            特別な人には、特別な贈り物を。<br><br>
+                            科学者、技術者、教育者、あるいは単に美しいものを愛する人へ。この元素標本キューブは、ありふれたギフトとは一線を画す、記憶に残る贈り物です。<br><br>
+                            開封の瞬間の驚きと感動は、長く記憶に残ります。「これが本物の元素なの？」という問いに、胸を張って「そう！」と答えられる贈り物です。<br><br>
+                            卒業祝い、昇進祝い、退職記念、特別な記念日。人生の重要な節目を、宇宙の基本要素である元素たちと共に祝いましょう。<br><br>
+                            高級感のある専用箱入りで、贈答用としても最適です。ギフトラッピング対応も可能です。
+                        </p>
+                        <img src="https://basefile.akamaized.net/budouya-base-ec/68ad644e8c4b0/E383ADE382B8E383A2E38397E383ADE381AEE382AEE38395E38388E383A9E38383E38394E383B3E382B028129.jpg" alt="ギフトボックス">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 社会的証明セクション -->
+    <section id="reviews" class="social-proof content-for-elemnt-cube">
+        <div class="container">
+            <h2 class="section-title">元素標本キューブの魅力とは？</h2>
+            
+            <div class="reviews">
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="reviewer">女性 東京都在住</div>
+                    </div>
+                    <p class="review-text">「実際に手に取り温度や感触を確認でき、感激しました。 元素の追加も楽しみにしています。」</p>
+                </div>
+                
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="reviewer">男性 福岡県在住</div>
+                    </div>
+                    <p class="review-text">「箱を開けた瞬間、うぉぉぉぉッ!!となりました とても素晴らしいお品をありがとうございます。」</p>
+                </div>
+                
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="reviewer">男性 埼玉県在住</div>
+                    </div>
+                    <p class="review-text">「素敵な商品が届きました。問い合わせにも丁寧に対応いただきました。種類が増える事を楽しみにしております。」</p>
+                </div>
+            </div>
+            
+            <div class="media-mentions">
+                <h3>当店メディア掲載実績</h3>
+                <img src="https://basefile.akamaized.net/budouya-base-ec/68c15575e0508/E5908DE7A7B0E69CAAE8A8ADE5AE9AE381AEE38387E382B6E382A4E383B328429.jpg">
+                <ul>
+                    <li>雑誌『POPEYE』2025年6月号 商品が掲載</li>
+                    <li>TBS「マツコの知らない世界」2025年9月9日 店主および商品が出演</li>
+                    <li>TBS「有吉ジャポンⅡジロジロ有吉」2025年4月5日 店主および商品が出演</li>
+                    <li>ASCII.jp 元素標本キューブが取材記事に掲載</li>
+                    <li>TV朝日「博士ちゃん」店主および商品が取材協力</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 製品詳細セクション -->
+    <section id="details" class="product-details content-for-elemnt-cube">
+        <img class="section-image set16" src="https://basefile.akamaized.net/budouya-base-ec/68c14d6fa78bd/E5908DE7A7B0E69CAAE8A8ADE5AE9AE381AEE38387E382B6E382A4E383B328129.jpg">
+        <img class="section-image set9 set25" src="https://basefile.akamaized.net/budouya-base-ec/68ca2e4c2c3f6/E5908DE7A7B0E69CAAE8A8ADE5AE9AE381AEE38387E382B6E382A4E383B3.jpg">
+        <div class="container">
+            <h2 class="section-title">セットに含まれる元素の紹介</h2>
+            <p class="section-intro set9">
+                元素標本キューブセット【9種】に含まれる元素はすべてが地球上の存在比0.001%以下のレアメタルです。これらの元素は私たちの日常生活や産業、そして未来の科学に向けて重要な役割を果たしています。
+            </p>
+             <p class="section-intro set16">
+                元素標本キューブセット【16種】に含まれる元素は、それぞれが独自の特性と歴史を持っています。これらの元素は私たちの日常生活や産業、そして宇宙の成り立ちにおいて重要な役割を果たしています。
+            </p>
+             <p class="section-intro set25">
+                元素標本キューブセット【25種】に含まれる元素は、それぞれが独自の特性と歴史を持っています。これらの元素は私たちの日常生活や産業、そして宇宙の成り立ちにおいて重要な役割を果たしています。
+            </p>
+            <div class="elements-indicators">
+                <div class="element-indicator active set16 set25" data-symbol="C">C</div>
+                <div class="element-indicator set16 set25" data-symbol="Mg">Mg</div>
+                <div class="element-indicator set16 set25" data-symbol="Al">Al</div>
+                <div class="element-indicator set16 set25" data-symbol="Ti">Ti</div>
+                <div class="element-indicator set9 set25" data-symbol="V">V</div>
+                <div class="element-indicator set16 set25" data-symbol="Cr">Cr</div>
+                <div class="element-indicator set16 set25" data-symbol="Fe">Fe</div>
+                <div class="element-indicator set9 set25" data-symbol="Co">Co</div>
+                <div class="element-indicator set16 set25" data-symbol="Ni">Ni</div>
+                <div class="element-indicator set16 set25" data-symbol="Cu">Cu</div>
+                <div class="element-indicator set16 set25" data-symbol="Zn">Zn</div>
+                <div class="element-indicator set9 set25" data-symbol="Y">Y</div>
+                <div class="element-indicator set16 set25" data-symbol="Zr">Zr</div>
+                <div class="element-indicator set9 set25" data-symbol="Nb">Nb</div>
+                <div class="element-indicator set9 set25" data-symbol="Mo">Mo</div>
+                <div class="element-indicator set16 set25" data-symbol="Ag">Ag</div>
+                <div class="element-indicator set9 set25" data-symbol="In">In</div>
+                <div class="element-indicator set16 set25" data-symbol="Sn">Sn</div>
+                <div class="element-indicator set16 set25" data-symbol="Sb">Sb</div>
+                <div class="element-indicator set9 set25" data-symbol="Sm">Sm</div>
+                <div class="element-indicator set9 set25" data-symbol="Gd">Gd</div>
+                <div class="element-indicator set9 set25" data-symbol="Er">Er</div>
+                <div class="element-indicator set16 set25" data-symbol="W">W</div>
+                <div class="element-indicator set16 set25" data-symbol="Pb">Pb</div>
+                <div class="element-indicator set16 set25" data-symbol="Bi">Bi</div>
+            </div>
+            <div class="elements-grid">
+                <div class="element set16 set25"  data-symbol="C">
+                    <div class="element-symbol">C</div>
+                    <h3>炭素</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 6</li>
+                        <li><strong>密度</strong>: 2.267 g/cm³</li>
+                        <li><strong>発見</strong>: 古代から知られている</li>
+                    </ul>
+                    <p>生命の基礎となる元素。ダイヤモンドや黒鉛など、異なる結晶構造を持つ同素体が存在。鉄鋼製造、電子材料、医薬品など幅広い分野で利用。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Mg">
+                    <div class="element-symbol">Mg</div>
+                    <h3>マグネシウム</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 12</li>
+                        <li><strong>密度</strong>: 1.738 g/cm³</li>
+                        <li><strong>発見</strong>: 1755年</li>
+                    </ul>
+                    <p>実用金属として最軽量。燃焼時に強い光を放つ。合金材料（航空宇宙産業）、脱酸剤、医薬品（制酸剤）などに利用。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Al">
+                    <div class="element-symbol">Al</div>
+                    <h3>アルミニウム</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 13</li>
+                        <li><strong>密度</strong>: 2.70 g/cm³</li>
+                        <li><strong>発見</strong>: 1825年</li>
+                    </ul>
+                    <p>軽量で加工しやすく、優れた耐食性を持つ。地殻中に豊富に存在する。建築材料、輸送機器、包装材料（アルミ缶）など用途は多岐にわたる。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Ti">
+                    <div class="element-symbol">Ti</div>
+                    <h3>チタン</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 22</li>
+                        <li><strong>密度</strong>: 4.506 g/cm³</li>
+                        <li><strong>発見</strong>: 1791年</li>
+                    </ul>
+                    <p>鋼鉄に匹敵する強度を持ちながら、重量は約半分。耐食性、特に耐海水性に優れる。航空宇宙産業、化学プラント、医療用インプラントなどに利用。</p>
+                </div>
+
+                <div class="element set9 set25" data-symbol="V">
+                    <div class="element-symbol">V</div>
+                    <h3>バナジウム</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 23</li>
+                        <li><strong>密度</strong>: 6.11 g/cm³</li>
+                        <li><strong>発見</strong>: 1801年</li>
+                    </ul>
+                    <p>少量添加するだけで鋼の強度、靭性、耐熱性を著しく向上させる。特殊鋼、工具鋼などの合金添加剤として重要。触媒としても利用される。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Cr">
+                    <div class="element-symbol">Cr</div>
+                    <h3>クロム</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 24</li>
+                        <li><strong>密度</strong>: 7.19 g/cm³</li>
+                        <li><strong>発見</strong>: 1797年</li>
+                    </ul>
+                    <p>硬く、強い光沢を持つ銀白色の金属。耐食性と耐摩耗性に優れる。ステンレス鋼の主要成分であり、めっき、顔料、触媒などに利用。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Fe">
+                    <div class="element-symbol">Fe</div>
+                    <h3>鉄</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 26</li>
+                        <li><strong>密度</strong>: 7.874 g/cm³</li>
+                        <li><strong>発見</strong>: 古代から知られている</li>
+                    </ul>
+                    <p>最も広く利用される金属。安価で加工しやすく、強度が高い。建築、自動車、鉄道など、社会の基盤を支えるあらゆる分野で利用される。</p>
+                </div>
+
+                <div class="element set9 set25" data-symbol="Co">
+                    <div class="element-symbol">Co</div>
+                    <h3>コバルト</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 27</li>
+                        <li><strong>密度</strong>: 8.90 g/cm³</li>
+                        <li><strong>発見</strong>: 1735年頃</li>
+                    </ul>
+                    <p>強磁性を持ち、耐熱性、耐摩耗性に優れる。リチウムイオン電池の正極材、超硬合金、磁石、顔料（コバルトブルー）などに利用。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Ni">
+                    <div class="element-symbol">Ni</div>
+                    <h3>ニッケル</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 28</li>
+                        <li><strong>密度</strong>: 8.908 g/cm³</li>
+                        <li><strong>発見</strong>: 1751年</li>
+                    </ul>
+                    <p>耐食性、耐熱性に優れ、美しい銀白色の光沢を持つ。ステンレス鋼、特殊合金（インコネルなど）、めっき、二次電池などに利用。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Cu">
+                    <div class="element-symbol">Cu</div>
+                    <h3>銅</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 29</li>
+                        <li><strong>密度</strong>: 8.96 g/cm³</li>
+                        <li><strong>発見</strong>: 紀元前9000年頃</li>
+                    </ul>
+                    <p>最古の金属の一つ。優れた熱伝導性と電気伝導性を持ち、特徴的な赤褐色を呈する。電線、電子機器、建築材料、通貨などに利用。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Zn">
+                    <div class="element-symbol">Zn</div>
+                    <h3>亜鉛</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 30</li>
+                        <li><strong>密度</strong>: 7.14 g/cm³</li>
+                        <li><strong>発見</strong>: 1746年以前</li>
+                    </ul>
+                    <p>鉄の防食（めっき）に広く利用される。電池の負極材、合金（真鍮）、ゴムの加硫助剤など、多様な用途を持つ。</p>
+                </div>
+
+                <div class="element set9 set25" data-symbol="Y">
+                    <div class="element-symbol">Y</div>
+                    <h3>イットリウム</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 39</li>
+                        <li><strong>密度</strong>: 4.472 g/cm³</li>
+                        <li><strong>発見</strong>: 1794年</li>
+                    </ul>
+                    <p>希土類元素の一つ。レーザー結晶、蛍光体（赤色）、超伝導材料、合金添加剤などに利用される、先端技術に不可欠な元素。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Zr">
+                    <div class="element-symbol">Zr</div>
+                    <h3>ジルコニウム</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 40</li>
+                        <li><strong>密度</strong>: 6.52 g/cm³</li>
+                        <li><strong>発見</strong>: 1789年</li>
+                    </ul>
+                    <p>優れた耐食性と低い中性子吸収率を持つ。原子炉の燃料被覆管として極めて重要。セラミックス（ジルコニア）、耐火物などにも利用。</p>
+                </div>
+
+                <div class="element set9 set25" data-symbol="Nb">
+                    <div class="element-symbol">Nb</div>
+                    <h3>ニオブ</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 41</li>
+                        <li><strong>密度</strong>: 8.57 g/cm³</li>
+                        <li><strong>発見</strong>: 1801年</li>
+                    </ul>
+                    <p>鉄鋼に添加すると強度と靭性を大幅に向上させる。超伝導材料としても優れ、MRI装置や加速器の電磁石に利用される。</p>
+                </div>
+
+                <div class="element set9 set25" data-symbol="Mo">
+                    <div class="element-symbol set16 set25">Mo</div>
+                    <h3>モリブデン</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 42</li>
+                        <li><strong>密度</strong>: 10.28 g/cm³</li>
+                        <li><strong>発見</strong>: 1778年</li>
+                    </ul>
+                    <p>高融点を持ち、高温での強度が高い。特殊鋼や合金の添加剤として、強度と耐食性を向上させる。潤滑剤（二硫化モリブデン）としても重要。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Ag">
+                    <div class="element-symbol">Ag</div>
+                    <h3>銀</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 47</li>
+                        <li><strong>密度</strong>: 10.49 g/cm³</li>
+                        <li><strong>発見</strong>: 古代から知られている</li>
+                    </ul>
+                    <p>全金属中で最高の電気伝導性と熱伝導性を持つ。美しい輝きから宝飾品に用いられる。写真フィルム、電子部品、抗菌剤などにも利用。</p>
+                </div>
+
+                <div class="element set9 set25" data-symbol="In">
+                    <div class="element-symbol">In</div>
+                    <h3>インジウム</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 49</li>
+                        <li><strong>密度</strong>: 7.31 g/cm³</li>
+                        <li><strong>発見</strong>: 1863年</li>
+                    </ul>
+                    <p>柔らかく融点が低い金属。ITO（インジウム・スズ酸化物）として、液晶ディスプレイやタッチパネルの透明電極に不可欠な元素。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Sn">
+                    <div class="element-symbol">Sn</div>
+                    <h3>スズ</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 50</li>
+                        <li><strong>密度</strong>: 7.265 g/cm³</li>
+                        <li><strong>発見</strong>: 古代から知られている</li>
+                    </ul>
+                    <p>融点が低く、加工しやすい。毒性がなく耐食性に優れるため、めっき（ブリキ）やはんだ、合金（青銅）などに古くから利用されてきた。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Sb">
+                    <div class="element-symbol">Sb</div>
+                    <h3>アンチモン</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 51</li>
+                        <li><strong>密度</strong>: 6.697 g/cm³</li>
+                        <li><strong>発見</strong>: 古代から知られている</li>
+                    </ul>
+                    <p>半金属性の元素。プラスチックや繊維に難燃性を与える助剤として重要。合金（鉛蓄電池の電極）、半導体材料などにも利用。</p>
+                </div>
+
+                <div class="element set9 set25" data-symbol="Sm">
+                    <div class="element-symbol">Sm</div>
+                    <h3>サマリウム</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 62</li>
+                        <li><strong>密度</strong>: 7.52 g/cm³</li>
+                        <li><strong>発見</strong>: 1879年</li>
+                    </ul>
+                    <p>希土類元素の一つ。非常に強力な永久磁石（サマリウムコバルト磁石）の材料として知られ、モーターやセンサーなどに利用される。</p>
+                </div>
+
+                <div class="element set9 set25" data-symbol="Gd">
+                    <div class="element-symbol">Gd</div>
+                    <h3>ガドリニウム</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 64</li>
+                        <li><strong>密度</strong>: 7.90 g/cm³</li>
+                        <li><strong>発見</strong>: 1880年</li>
+                    </ul>
+                    <p>希土類元素の中で最も強い磁性を持つ。MRI用の造影剤として医療分野で重要。中性子吸収能力も高く、原子炉制御材にも利用。</p>
+                </div>
+
+                <div class="element set9 set25" data-symbol="Er">
+                    <div class="element-symbol set16 set25">Er</div>
+                    <h3>エルビウム</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 68</li>
+                        <li><strong>密度</strong>: 9.066 g/cm³</li>
+                        <li><strong>発見</strong>: 1843年</li>
+                    </ul>
+                    <p>特徴的なピンク色のイオンを持つ希土類元素。光ファイバー通信の増幅器に不可欠。ガラスの着色剤やレーザー材料としても利用される。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="W">
+                    <div class="element-symbol">W</div>
+                    <h3>タングステン</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 74</li>
+                        <li><strong>密度</strong>: 19.3 g/cm³</li>
+                        <li><strong>発見</strong>: 1783年</li>
+                    </ul>
+                    <p>セット内で最も重い元素。全金属元素中で最高の融点（3422℃）を持つ。電球のフィラメント、切削工具、防放射線シールドなどに利用。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Pb">
+                    <div class="element-symbol">Pb</div>
+                    <h3>鉛</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 82</li>
+                        <li><strong>密度</strong>: 11.34 g/cm³</li>
+                        <li><strong>発見</strong>: 古代から知られている</li>
+                    </ul>
+                    <p>密度が高く、柔らかく加工しやすい。放射線遮蔽能力に優れる。鉛蓄電池、はんだ、防音材などに利用される。</p>
+                </div>
+
+                <div class="element set16 set25" data-symbol="Bi">
+                    <div class="element-symbol">Bi</div>
+                    <h3>ビスマス</h3>
+                    <ul>
+                        <li><strong>元素番号</strong>: 83</li>
+                        <li><strong>密度</strong>: 9.78 g/cm³</li>
+                        <li><strong>発見</strong>: 1753年</li>
+                    </ul>
+                    <p>鉛の代替として注目される、毒性の低い重金属。融点が低く、他の金属と混ぜて易融合金を作る。医薬品（胃腸薬）、化粧品、はんだなどに利用。</p>
+                </div>
+            </div>
+                
+                <!-- 他の元素も同様に追加可能 -->
+            
+            <div class="specs">
+                <h3>技術仕様</h3>
+                <ul>
+                    <li><strong>サイズ</strong>: 各キューブ 1cm × 1cm × 1cm（精密加工）</li>
+                    <li><strong>純度</strong>: 各元素99%以上</li>
+                    <li><strong>表面処理</strong>: レーザー刻印（元素番号、元素記号、英語名、密度）</li>
+                    <li><strong>ケース</strong>: 個別アクリルケース付き（セパレート式）</li>
+                    <li><strong>パッケージ</strong>: 専用紙箱、説明カード付き</li>
+                </ul>
+            </div>
+            
+            <div class="manufacturing">
+                <h3>製造プロセス</h3>
+                <p>
+                    各元素は材料系専門の会社によって厳選され、高精度のCNC加工機で正確に1cm角に切削されます。表面のレーザー刻印は、耐久性と視認性を考慮した最適な深さで施されています。<br><br>
+                    すべての工程は熟練した技術者の監督下で行われ、品質管理テストを経て、一つひとつ丁寧に個別ケースに収められます。
+                    
+                </p>
+                <div class="item-option set16 set25">
+                    <h3>銀(Ag)について</h3>
+                    <p>銀のキューブは99.9%の高純度銀を使用しており、通常の銀製品（シルバー925）では味わえない純銀の輝きをお楽しみいただけます。</p>
+                    <p>造幣局による日本国内で最も厳格な貴金属の品位認定を受けており、純度99.9%であることを示す999（スリーナイン）のホールマークが背面に打刻してあります。</p>
+                </div>
+                <div class="item-option set16 set25">
+                    <h3>アンチモン(Sb)について</h3>
+                    <p>アンチモンは脆く柔らかい金属のため面取り加工を施しており、わずかに寸法に個体差があります。また、わずかな欠けや傷も元素の特性となります。</p>
+                </div>
+                <div class="item-option set9">
+                    <h3>インジウム(In)について</h3>
+                    <p>インジウムは柔らかい金属のため面取り加工を施しており、わずかに寸法に個体差があります。また、わずかな欠けや傷も元素の特性となります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 限定性と希少性の強調 -->
+    <section class="scarcity content-for-elemnt-cube">
+        <div class="container">
+            <h2 class="section-title">限定生産品</h2>
+            <p class="section-intro">
+                元素標本キューブはその性質上、大量生産が困難な商品です。<br><br>
+                高純度の元素の調達、精密な加工技術、厳格な品質管理、これらの要素が組み合わさることで、この特別なコレクションが生まれます。<br><br>
+                また一部の元素類は国家戦略の要とみなされるため、国際情勢の変化の折、材料の輸入が大変困難となっております。<br><br>
+                お客様にお届けできる数に限りがあることをご了承ください。
+                
+            </p>
+            <div class="stock-indicator-bar">
+                <div class="stock-info">
+                    <span class="status-text">在庫</span>
+                    <span class="quantity">残り <strong>{ItemStock}</strong> 点</span>
+                </div>
+                <div class="bar-container">
+                    <div class="bar" style="width: 50%;"></div>
+                </div>
+                <p class="restock-note">※次回入荷は未定です</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- かっこいい台座がついてくる -->
+    <section class="scarcity content-for-elemnt-cube set9 set25">
+        <img class="section-image set9 set25" src="https://basefile.akamaized.net/budouya-base-ec/68ca45b6292f7/E5908DE7A7B0E69CAAE8A8ADE5AE9AE381AEE38387E382B6E382A4E383B328129.jpg">
+        <div class="container">
+            <h2 class="section-title">購入特典</h2>
+            <p class="section-intro">
+                【9種セット】または【25種セット】をご購入いただいたお客様に、<br><br>
+                『25種ディスプレイ台座』をプレゼント!!<br><br>
+                どんな場所に置かれていても、思わず目を引くスタイリッシュなデザイン。<br><br>
+                今、ご購入いただいたお客様限定です。お早めにお求めください。
+            </p>
+        </div>
+    </section>
+
+    <!-- よくある質問（FAQ） -->
+    <section class="faq content-for-elemnt-cube">
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>本物の元素ですか？</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>はい、材料系専門の会社に制作を依頼しており、メッキ等ではなく全部が表示通りの元素であることを保証いたします。また、サイズを1cm角に限定しているため、偽の合金を使用して色と重さを再現するのは困難です。</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>サビはつきますか？</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>はい、銅・鉄などは保管方法により錆びる可能性があります。水分がついた部分が変色するような感じです。専用ケースなどを使い鑑賞時に触らないようにするほか、乾燥剤を使うと防げます。ただ当店は、色が変わってもいいから手の上で転がしたい！という人もいていいと思います。</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>ケースはどのようなものですか？</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>アクリル製の、1個用ケースです。キューブがぴったり入り、セパレート式の底がカチッとはまるタイプになります。透明なので上面にレーザー刻印面を向ければそのまま鑑賞できます。</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>今後種類の拡張予定はありますか？</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>はい、さらに多種類のセットも今後ご用意させていただきたいと思います。もちろんその際はすでにこちらのセットを購入していただいた方のために、差分のみのセットもご用意します。</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>子供のいる家庭でも安全ですか？</h3>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>基本的に触れるだけで危険な元素はセットにありませんが、一部の元素は粘膜への接触や誤飲は避けるべきです。小さなお子様がいる場合は、大人の監督のもとでご使用ください。また、各キューブは個別のケースに入っているため、適切に保管すれば安全にお楽しみいただけます。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- 購入セクション -->
+<section id="mainContent" class="wrapper clearfix">
+    {IllegalReportMessageTag}
+    
+    <h1 class="itemTitle">{ItemTitle}{block:AppsDownload}{block:ItemDigitalContent}({ItemDigitalContent}){/block:ItemDigitalContent}{/block:AppsDownload}</h1>
+    
+    <div class="item clearfix">
+        <div class="itemImg clearfix">
+            <div class="itemImgSlide">
+                <ul id="slideImg">
+                    <li><div class="imgBox"><a href="{block:ItemImage1}{ItemImage1URL-origin}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" class="ajax btn grn save" rel="group">
+                    {block:AppsItemLabel}
+                        {AppsItemLabelTag}
+                    {/block:AppsItemLabel}
+                    <img src="{block:ItemImage1}{ItemImage1URL-500}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title=""></a></div></li>
+                    {block:ItemImage2}<li style="display:none;"><div class="imgBox"><a href="{ItemImage2URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage2URL-500}" alt="" title=""></a></div></li>{/block:ItemImage2}
+                    {block:ItemImage3}<li style="display:none;"><div class="imgBox"><a href="{ItemImage3URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage3URL-500}" alt="" title=""></a></div></li>{/block:ItemImage3}
+                    {block:ItemImage4}<li style="display:none;"><div class="imgBox"><a href="{ItemImage4URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage4URL-500}" alt="" title=""></a></div></li>{/block:ItemImage4}
+                    {block:ItemImage5}<li style="display:none;"><div class="imgBox"><a href="{ItemImage5URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage5URL-500}" alt="" title=""></a></div></li>{/block:ItemImage5}
+                    {block:ItemImage6}<li style="display:none;"><div class="imgBox"><a href="{ItemImage6URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage6URL-500}" alt="" title=""></a></div></li>{/block:ItemImage6}
+                    {block:ItemImage7}<li style="display:none;"><div class="imgBox"><a href="{ItemImage7URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage7URL-500}" alt="" title=""></a></div></li>{/block:ItemImage7}
+                    {block:ItemImage8}<li style="display:none;"><div class="imgBox"><a href="{ItemImage8URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage8URL-500}" alt="" title=""></a></div></li>{/block:ItemImage8}
+                    {block:ItemImage9}<li style="display:none;"><div class="imgBox"><a href="{ItemImage9URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage9URL-500}" alt="" title=""></a></div></li>{/block:ItemImage9}
+                    {block:ItemImage10}<li style="display:none;"><div class="imgBox"><a href="{ItemImage10URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage10URL-500}" alt="" title=""></a></div></li>{/block:ItemImage10}
+                    {block:ItemImage11}<li style="display:none;"><div class="imgBox"><a href="{ItemImage11URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage11URL-500}" alt="" title=""></a></div></li>{/block:ItemImage11}
+                    {block:ItemImage12}<li style="display:none;"><div class="imgBox"><a href="{ItemImage12URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage12URL-500}" alt="" title=""></a></div></li>{/block:ItemImage12}
+                    {block:ItemImage13}<li style="display:none;"><div class="imgBox"><a href="{ItemImage13URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage13URL-500}" alt="" title=""></a></div></li>{/block:ItemImage13}
+                    {block:ItemImage14}<li style="display:none;"><div class="imgBox"><a href="{ItemImage14URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage14URL-500}" alt="" title=""></a></div></li>{/block:ItemImage14}
+                    {block:ItemImage15}<li style="display:none;"><div class="imgBox"><a href="{ItemImage15URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage15URL-500}" alt="" title=""></a></div></li>{/block:ItemImage15}
+                    {block:ItemImage16}<li style="display:none;"><div class="imgBox"><a href="{ItemImage16URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage16URL-500}" alt="" title=""></a></div></li>{/block:ItemImage16}
+                    {block:ItemImage17}<li style="display:none;"><div class="imgBox"><a href="{ItemImage17URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage17URL-500}" alt="" title=""></a></div></li>{/block:ItemImage17}
+                    {block:ItemImage18}<li style="display:none;"><div class="imgBox"><a href="{ItemImage18URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage18URL-500}" alt="" title=""></a></div></li>{/block:ItemImage18}
+                    {block:ItemImage19}<li style="display:none;"><div class="imgBox"><a href="{ItemImage19URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage19URL-500}" alt="" title=""></a></div></li>{/block:ItemImage19}
+                    {block:ItemImage20}<li style="display:none;"><div class="imgBox"><a href="{ItemImage20URL-origin}" class="ajax btn grn save" rel="group"><img src="{ItemImage20URL-500}" alt="" title=""></a></div></li>{/block:ItemImage20}
+                </ul>
+            </div>
+            <ul id="slideImgPager">
+                <li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{block:ItemImage1}{ItemImage1URL-76}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title=""></div></a></li>
+                {block:ItemImage2}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage2URL-76}" alt="" title=""></div></a></li>{/block:ItemImage2}
+                {block:ItemImage3}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage3URL-76}" alt="" title=""></div></a></li>{/block:ItemImage3}
+                {block:ItemImage4}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage4URL-76}" alt="" title=""></div></a></li>{/block:ItemImage4}
+                {block:ItemImage5}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage5URL-76}" alt="" title=""></div></a></li>{/block:ItemImage5}
+                {block:ItemImage6}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage6URL-76}" alt="" title=""></div></a></li>{/block:ItemImage6}
+                {block:ItemImage7}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage7URL-76}" alt="" title=""></div></a></li>{/block:ItemImage7}
+                {block:ItemImage8}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage8URL-76}" alt="" title=""></div></a></li>{/block:ItemImage8}
+                {block:ItemImage9}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage9URL-76}" alt="" title=""></div></a></li>{/block:ItemImage9}
+                {block:ItemImage10}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage10URL-76}" alt="" title=""></div></a></li>{/block:ItemImage10}
+                {block:ItemImage11}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage11URL-76}" alt="" title=""></div></a></li>{/block:ItemImage11}
+                {block:ItemImage12}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage12URL-76}" alt="" title=""></div></a></li>{/block:ItemImage12}
+                {block:ItemImage13}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage13URL-76}" alt="" title=""></div></a></li>{/block:ItemImage13}
+                {block:ItemImage14}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage14URL-76}" alt="" title=""></div></a></li>{/block:ItemImage14}
+                {block:ItemImage15}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage15URL-76}" alt="" title=""></div></a></li>{/block:ItemImage15}
+                {block:ItemImage16}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage16URL-76}" alt="" title=""></div></a></li>{/block:ItemImage16}
+                {block:ItemImage17}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage17URL-76}" alt="" title=""></div></a></li>{/block:ItemImage17}
+                {block:ItemImage18}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage18URL-76}" alt="" title=""></div></a></li>{/block:ItemImage18}
+                {block:ItemImage19}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage19URL-76}" alt="" title=""></div></a></li>{/block:ItemImage19}
+                {block:ItemImage20}<li><a data-slide-index="{Counter}" href=""><div class="smallImgBox"><img src="{ItemImage20URL-76}" alt="" title=""></div></a></li>{/block:ItemImage20}
+            </ul>
+        </div>
+
+        
+
+        <div class="itemDescription">
+            <p>{ItemDetail}</p>
+        </div>
+        {block:AppsItemDetailCustom}
+            {AdditionalItemDetail}
+            {AdditionalItemDetailDefaultCssAndJs}
+        {/block:AppsItemDetailCustom}
+    </div>
+    <div class="purchase">
+        <div class="itemPrice {block:ItemNowOnSale}{block:NoItemStock}itemPrice_soldout{/block:NoItemStock}{/block:ItemNowOnSale} {block:ItemEndOfSale}itemPrice_soldout{/block:ItemEndOfSale}">
+            {block:NoItemProperPrice}
+            <!-- 定価 -->
+            <h2>{ItemPrice}</h2>
+            {/block:NoItemProperPrice}
+            {block:HasItemProperPrice}
+            <!-- 割引 -->
+            <h2 class="discountPrice">
+                <span class="discountPrice__default">{ItemProperPrice}</span><span class="discountPrice__ratio">{ItemDiscountRate}</span>
+                <span class="discountPrice__calcPrice">{ItemPrice}</span>
+            </h2>
+            {/block:HasItemProperPrice}
+
+            {block:ItemNowOnSale}{block:NoItemStock}
+                <span>SOLD OUT</span>
+            {/block:NoItemStock}{/block:ItemNowOnSale}
+            {block:ItemEndOfSale}
+                <span>SOLD OUT</span>
+            {/block:ItemEndOfSale}
+            {block:ItemWatingForSale}
+                <p class="comingSoon">{ItemSaleStatusTag}</p>
+            {/block:ItemWatingForSale}
+        </div>
+        {ItemAttentionTag}
+        {block:PurchaseForm}
+            {ItemSelectTag}
+            {block:AppsCommunity}
+                {CommunityPurchaseButton}
+            {/block:AppsCommunity}
+            {AppsAgeVerificationWarningTag}
+            {PurchaseButton}
+            <div class="floatPurchaseButton">{PurchaseButton}</div>
+        {/block:PurchaseForm}
+        <div class="shareButtons">
+            {SocialButtonTag}
+            <div class="twitter">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="{ItemRedirectUrl}" data-lang="ja" data-hashtags="{TwitterDataHashtags}" data-via="{TwitterDataVia}">{lang:Tweet}</a>
+            </div>
+            <div class="facebook">
+                <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">シェア</a></div>
+            </div>
+            {EmbedWidgetTag}
+        </div>
+        <div id="reportBtn">
+            {IllegalReportTag}
+        </div>
+    </div>
+    {block:AppsReview}
+    {AppsReviewTag}
+    {/block:AppsReview}
+</section>
+<div class="product-{ItemId}">
+    <!-- その他の商品セクション -->
+    <section class="other-items-section content-for-elemnt-cube">
+        <div class="container">
+            <h2>その他の商品</h2>
+            <div class="other-items">
+
+                <div class="other-item set16 set25"><a href="https://www.budouyastone.com/items/115127875" class="card-link">
+                    <img src="https://basefile.akamaized.net/budouya-base-ec/68b910df3cc0f/9E7A8AE_E7AEB1E585A5E3828A.jpg" alt="9種セットの商品画像" >
+                    <h3>9種セット</h3>
+                    <p class="description">待望の追加セット。9種類のレアメタルをあなたのコレクションに。</p>
+                    <p class="price">¥39,500</p>
+                </a></div>
+
+                <div class="other-item set9 set25"><a href="https://www.budouyastone.com/items/87999715" class="card-link">
+                    <img src="https://basefile.akamaized.net/budouya-base-ec/68b910fab53a0/16E7A8AE_E7AEB1E585A5E3828A.jpg" alt="16種セットの商品画像">
+                    <h3>16種セット</h3>
+                    <p class="description">定番の元素をセレクトした、満足度の高い16種のコレクション。</p>
+                    <p class="price">¥29,500</p>
+                </a></div>
+
+                <div class="other-item set9 set16"><a href="https://www.budouyastone.com/items/115127926" class="card-link">
+                    <img src="https://basefile.akamaized.net/budouya-base-ec/68b9110f5736c/25E7A8AE_E7AEB1E585A5E3828A.jpg" alt="25種セットの商品画像">
+                    <h3>25種セット</h3>
+                    <p class="description">すべてのバリエーションが揃う、完璧なコンプリートセット。</p>
+                    <p class="price">¥69,000</p>
+                </a></div>
+
+                <div class="other-item set9 set16 set25"><a href="https://www.budouyastone.com/items/116197525" class="card-link">
+                    <img src="https://basefile.akamaized.net/budouya-base-ec/68b9187a26d03/E98A801.jpg" alt="ホールマーク入り銀キューブの商品画像">
+                    <h3>ホールマーク入り銀キューブ</h3>
+                    <p class="description">品質を証明するホールマークが背面に刻印された、純銀の元素標本キューブ。</p>
+                    <p class="price">¥11,000</p>
+                </a></div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 安心保証セクション -->
+    <section class="guarantee content-for-elemnt-cube">
+        <div class="container">
+            <h2 class="section-title">安心の品質保証</h2>
+            
+            <div class="guarantee-grid">
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>本物保証</h3>
+                    <p>材料系専門の会社に制作を依頼しており、すべての元素が表示通りの本物であることを保証いたします。高純度の素材と精密な加工技術により、科学的にも正確な標本としての価値を持つ製品です。</p>
+                </div>
+                
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>アフターケア</h3>
+                    <p>ご購入後のご質問やお手入れ方法のアドバイスなど、お気軽にお問い合わせください。元素の特性や保管方法についても詳しくご案内いたします。</p>
+                </div>
+                
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>将来の拡張</h3>
+                    <p>元素標本キューブシリーズは今後も拡張予定です。新たな元素セットが登場した際には、既存のお客様に優先的にご案内いたします。あなたのコレクションは、時間とともに成長していきます。</p>
+                </div>
+            </div>
+            
+            <div class="footer-cta">
+                <h3>宇宙の基本要素を、<br>あなたの手のひらに。</h3>
+                <!-- <a href="#purchase" class="cta-button">今すぐ予約する</a> -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer content-for-elemnt-cube">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>葡萄屋 鉱物＆雑貨店</h2>
+                    <p>本物の科学体験をお届けします</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>リンク</h3>
+                    <ul>
+                        <li><a href="#product">商品概要</a></li>
+                        <li><a href="#experience">体験</a></li>
+                        <li><a href="#reviews">レビュー</a></li>
+                        <li><a href="#details">詳細</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 葡萄屋 鉱物＆雑貨店. All rights reserved.</p>
+            </div>
+            {IllegalReportTag}
+        </div>
+    </footer>
+
+    <script>
+        // タブ切り替え機能
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // アクティブなタブボタンを更新
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // アクティブなタブペインを更新
+                    const tabId = this.getAttribute('data-tab');
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // アコーディオン機能
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const accordionItem = this.parentElement;
+                    accordionItem.classList.toggle('active');
+                    
+                    const icon = this.querySelector('.accordion-icon');
+                    icon.textContent = accordionItem.classList.contains('active') ? '-' : '+';
+                });
+            });
+        });
+    </script>
+    <script>
+        // ベースアイコン
+        document.addEventListener("DOMContentLoaded", function() {
+            let navList;
+            try {
+                navList = document.querySelector("#shopDetailPage .header .container .nav ul");
+            } catch (e) {
+                return;
+            }
+            // var baseMenu = document.querySelector("body #baseMenu");
+            var base = document.querySelector("body #baseMenu .base");
+            var cart = document.querySelector("body #baseMenu .cart");
+            if (navList && base && cart) {
+                navList.appendChild(base);
+                navList.appendChild(cart);
+            }
+            var baseImg = document.querySelector(".base img");
+            var cartImg = document.querySelector(".cart img");
+            baseImg.style.height = "13px";
+            cartImg.style.height = "13px";
+        });
+    </script>
+    <script>
+        // 購入ボタンの横に価格を表示させる
+        const purchaseButtons = document.querySelectorAll('.purchaseButton .purchaseButton__btn');
+        purchaseButtons.forEach(function(el) {
+            el.textContent = "購入する {ItemPrice}";
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // セレクト要素を取得
+            const selectElement = document.getElementById('amountSelect');
+
+            // changeイベントリスナーを追加
+            selectElement.addEventListener('change', function(event) {
+                const selectedValue = event.target.value;
+                const numItems = Number(selectedValue);
+                const itemPrice = "{ItemPrice}";
+                const itemPriceInt = Number(itemPrice.replace(/[^0-9.-]+/g,""));
+                const formatter = new Intl.NumberFormat('ja-JP', {
+                    style: 'currency',
+                    currency: 'JPY',
+                    minimumFractionDigits: 0, // 小数点以下を表示しない
+                });
+                const price = numItems * itemPriceInt;
+                const numItemsStr = (numItems > 1) ? ` / ${numItems}個` : "";
+                // const purchaseButtons = document.querySelectorAll('.purchaseButton .purchaseButton__btn');
+                purchaseButtons.forEach(function(el) {
+                    el.textContent = `購入する ${formatter.format(price)}${numItemsStr}`;
+                });    
+            })
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jackmoore/colorbox@1.6.4/jquery.colorbox-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/stevenwanderski/bxslider-4@4.2.15/dist/jquery.bxslider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/malihu/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+        (function(win, doc, $) {
+            'use strict';
+            var COMMON = {};
+            $(function() {
+                COMMON.init();
+            });
+
+            COMMON = {
+                init: function() {
+                    $(window).on('load', function(){
+                        COMMON.slide_img();
+                        COMMON.colorbox();
+                        COMMON.customScrollBar();
+                    });
+                },
+                slide_img: function(){
+                    $('#slideImg').bxSlider({
+                        controls: false,
+                        pagerCustom: '#slideImgPager',
+                        adaptiveHeight: true,
+                        mode: 'fade'
+                    });
+                },
+                colorbox:function(){
+                    $(".ajax").on('click', function(e) {e.preventDefault();});
+                    $(".ajax").colorbox({className:'itemCb',maxWidth:'90%',maxHeight:'90%',current:false});
+                },
+                customScrollBar: function(){
+                    $("#slideImgPager").mCustomScrollbar({
+                        axis:"y",
+                        theme:"inset-dark"
+                    });
+                }
+            };
+        }(window, document, jQuery));
+    </script>
+    <script>
+        // ページの読み込みが完了したら実行
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- カスタマイズ用の設定 ---
+            // 「残りわずか」と判断する在庫数のしきい値
+            const lowStockThreshold = 30;
+            // バーの長さが100%になる在庫数（これ以上あってもバーは100%のまま）
+            const maxStockForBar = 200;
+            // -------------------------
+
+            // ページ内のすべてのインジケーター要素を取得
+            const indicators = document.querySelectorAll('.stock-indicator-bar');
+
+            
+            const stock = {ItemStock};
+
+            // 各インジケーターを個別に処理
+            indicators.forEach(function(indicator) {
+                // 更新する要素を取得
+                const statusTextElem = indicator.querySelector('.status-text');
+                const quantityElem = indicator.querySelector('.quantity strong');
+                const barElem = indicator.querySelector('.bar');
+
+                // 在庫数に応じてクラス、テキスト、バーの長さを設定
+                if (stock <= 0) {
+                // 在庫切れの場合
+                indicator.classList.add('out-of-stock');
+                statusTextElem.textContent = '在庫切れ';
+                quantityElem.textContent = '---';
+                barElem.style.width = '0%';
+
+                } else if (stock <= lowStockThreshold) {
+                // 在庫が残りわずかな場合
+                indicator.classList.add('low-stock');
+                statusTextElem.textContent = '残りわずか';
+                quantityElem.textContent = stock;
+                // バーの割合を計算（0未満にならないようにMath.maxを使用）
+                const percentage = Math.max(0, (stock / maxStockForBar) * 100);
+                barElem.style.width = percentage + '%';
+
+                } else {
+                // 在庫が十分ある場合
+                indicator.classList.add('in-stock');
+                statusTextElem.textContent = '在庫あり';
+                quantityElem.textContent = stock;
+                // バーの割合を計算（100%を超えないようにMath.minを使用）
+                const percentage = Math.min(100, (stock / maxStockForBar) * 100);
+                barElem.style.width = percentage + '%';
+                }
+            });
+        });
+    </script>
+    <script>
+        const elementsGrid = document.querySelector('.elements-grid');
+        const elements = document.querySelectorAll('.element');
+        const indicators = document.querySelectorAll('.element-indicator');
+
+        // IntersectionObserverで「現在表示中」を検出
+        const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            const sym = entry.target.dataset.symbol;
+            indicators.forEach(ind => {
+                ind.classList.toggle('active', ind.textContent === sym);
+            });
+            }
+        });
+        }, {
+        root: elementsGrid,
+        threshold: 0.6
+        });
+
+        elements.forEach(el => observer.observe(el));
+
+        // クリックで対応する .element へスクロール
+        indicators.forEach(indicator => {
+        indicator.addEventListener('click', () => {
+            const sym = indicator.textContent;
+            const target = document.querySelector(`.element[data-symbol="${sym}"]`);
+            if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                inline: 'center',
+                block: 'nearest'
+            });
+            }
+        });
+        });
+
+    </script>
+    <!-- Twitter conversion tracking event code -->
+    <!-- <script type="text/javascript">
+    const selectElement = document.getElementById('amountSelect').value;
+
+    // Insert Twitter Event ID
+    twq('event', 'tw-omrti-qq0xh', {
+        contents: [ // use this to pass an array of products or content
+            // add all items to the array
+            // use this for the first item
+            {
+            content_type: null,
+            content_id: {ItemId},
+            content_name: null,
+            content_price: null,
+            num_items: {P},
+            content_group_id: null
+            }] 
+    });
+    </script> -->
+    <!-- End Twitter conversion tracking event code -->
+</div>
+{/block:ItemPage}
+{block:AboutPage}
+    <div class="main">
+        <div id="about">
+            <h2>about</h2>
+            <p>{ShopIntroduction}</p>
+            <div class="social">
+                <ul class="clearfix">
+                    {block:ShopInstagramId}
+                    <li><a href="https://www.instagram.com/{ShopInstagramId}" target="_blank"><img src="/img/shop/igicon.png" height="30" width="30"></a></li>
+                    {/block:ShopInstagramId}
+                    {block:ShopTwitterId}
+                    <li class="tw"><a href="https://twitter.com/{ShopTwitterId}" target="_blank"><img src="/img/shop/twicon.png" height="30" width="30"></a></li>
+                    {/block:ShopTwitterId}
+                    {block:ShopLineId}
+                    <li><a href="https://line.me/R/ti/p/%40{ShopLineId}" target="_blank"><img src="/img/shop/lineicon.png" height="30" width="30"></a></li>
+                    {/block:ShopLineId}
+                    {block:ShopFacebookId}
+                    <li><a href="https://www.facebook.com/{ShopFacebookId}" target="_blank"><img src="/img/shop/fbicon.png" height="30" width="30"></a></li>
+                    {/block:ShopFacebookId}
+                    {block:ShopYoutubeId}
+                    <li><a href="{ShopYoutubeId}" target="_blank"><img src="/img/shop/youtubeicon.png" height="30" width="30"></a></li>
+                    {/block:ShopYoutubeId}
+                    {block:ShopTiktokId}
+                    <li><a href="https://tiktok.com/@{ShopTiktokId}" target="_blank"><img src="/img/shop/tiktokicon_black.png" height="30" width="30"></a></li>
+                    {/block:ShopTiktokId}
+                    {block:ShopNoteId}
+                    <li><a href="https://note.com/{ShopNoteId}" target="_blank"><img src="/img/shop/noteicon.png" height="30" width="30"></a></li>
+                    {/block:ShopNoteId}
+                    {block:ShopAmebaId}
+                    <li><a href="https://ameblo.jp/{ShopAmebaId}" target="_blank"><img src="/img/shop/ambicon.png" height="30" width="30"></a></li>
+                    {/block:ShopAmebaId}
+                </ul>
+            </div>
+        </div>
+    </div>
+{/block:AboutPage}
+{PageContents}
+<footer id="mainFooter" class="wrapper clearfix">
+    <div class="footerMenu">
+        <ul class="clearfix">
+            <li><a class="footerNav" href="{PrivacyPageURL}">{lang:Privacy}</a></li>
+            <li><a class="footerNav" href="{LawPageURL}">{lang:Law}</a></li>
+            {block:AppsMembership}
+              <li><a class="footerNav" href="https://thebase.com/pages/shop_membership_term">会員規約</a></li>
+            {/block:AppsMembership}
+            <li class="boxRight">
+                <div>
+                    <div class="fb sns">
+                        <div class="fb-share-button" data-href="{ShopURL}/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">シェア</a></div>
+                    </div>
+                    <div class="twitter sns">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="{ShopRedirectUrl}" data-lang="ja" data-hashtags="{TwitterDataHashtags}" data-via="{TwitterDataVia}" data-text="{ShopName}">{lang:Tweet}</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</footer>
+<input id="base_url" type="hidden" value="{ShopURL}">
+<!-- script:Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=350947278320210&version=v2.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- script:Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</body>
+</html>
+{/block:NotLoadItemsPage}
+{block:LoadItemsPage}
+{block:Items}
+    <div class="item part">
+        <div class="itemImg">
+            <a href="{ItemPageURL}">
+                {block:AppsItemLabel}
+                    {AppsItemLabelTag}
+                {/block:AppsItemLabel}
+                <img src="{block:ItemImage1}{ItemImage1URL-300}{/block:ItemImage1}{block:NoItemImage1}{ItemNoImageURL}{/block:NoItemImage1}" alt="{ItemTitle}" title="{ItemTitle}" class="image-resize">
+                {block:ItemNowOnSale}{block:NoItemStock}
+                    <div class="soldout_cover"><p>SOLD OUT</p></div>
+                {/block:NoItemStock}{/block:ItemNowOnSale}
+                {block:ItemEndOfSale}
+                    <div class="soldout_cover"><p>SOLD OUT</p></div>
+                {/block:ItemEndOfSale}
+            </a>
+        </div>
+        <a href="{ItemPageURL}">
+            <div class="itemTitle">
+                <h2>{ItemTitle}</h2>
+            </div>
+            <ul class="itemDetail">
+                {block:NoItemProperPrice}
+                    <li class="itemPrice">{ItemPrice}</li>
+                {/block:NoItemProperPrice}
+                {block:HasItemProperPrice}
+                    <li class="discountPrice">
+                        <span class="discountPrice__ratio">{ItemDiscountRate}</span>
+                        <span class="discountPrice__calcPrice">{ItemPrice}</span>
+                    </li>
+                {/block:HasItemProperPrice}
+            </ul>
+            {block:HasItemStock}
+                {block:ItemWatingForSale}
+                    <p class="comingSoon">COMING SOON</p>
+                {/block:ItemWatingForSale}
+                {block:ItemNowOnSale}{block:ItemPreOrder}
+                    <p class="preOrder">{lang:PreOrderItem}</p>
+                {/block:ItemPreOrder}{block:ItemLottery}
+                    <p class="lottery">{lang:LotteryItem}</p>
+                {/block:ItemLottery}{block:ItemTakeout}
+                    <p class="takeout">{lang:TakeoutItem}</p>
+                {/block:ItemTakeout}{block:ItemCommunityLimited}
+                    <p class="community">{lang:CommunityLimitedItem}</p>
+                {/block:ItemCommunityLimited}{/block:ItemNowOnSale}
+            {/block:HasItemStock}
+            {block:NoItemStock}
+                {block:ItemWatingForSale}
+                    <p class="comingSoon">COMING SOON</p>
+                {/block:ItemWatingForSale}
+            {/block:NoItemStock}
+        </a>
+    </div>
+{/block:Items}
+{/block:LoadItemsPage}
+{block:AppsSearch}
+<script>
+    $(function(){
+        var _color = $('#x_iconSearch').css('color');
+        $('#x_itemSearchForm').css('border-color' , _color);
+    });
+</script>
+{/block:AppsSearch}
