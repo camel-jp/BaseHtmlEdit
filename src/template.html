@@ -19,6 +19,13 @@
         <link rel="stylesheet" href="https://camel-jp.github.io/element-cube-details/style.css">
         <link rel="stylesheet" href="{BASEURL}/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/malihu/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.min.css">
+        <!-- BASEデータ注入（script.js から参照、ItemPageのみで展開） -->
+        <script>
+            window.BASE_ITEM = { id: {ItemId}, price: "{ItemPrice}", stock: {ItemStock} };
+            document.addEventListener('DOMContentLoaded', function() {
+                document.body.classList.add('product-' + window.BASE_ITEM.id);
+            });
+        </script>
     {/block:ItemPage}
 
     {block:NotItemPage}
@@ -72,16 +79,6 @@
     {block:AppsBlog}
         <link href="{BlogFeedPageURL}" rel="alternate" type="application/rss+xml" title="Blog | {ShopName}">
     {/block:AppsBlog}
-
-    <!-- BASEデータ注入（script.js から参照） -->
-    <script>
-        window.BASE_ITEM = { id: {ItemId}, price: "{ItemPrice}", stock: {ItemStock} };
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.BASE_ITEM.id) {
-                document.body.classList.add('product-' + window.BASE_ITEM.id);
-            }
-        });
-    </script>
 
     <!-- Twitter コンバージョントラッキング -->
     <script>
