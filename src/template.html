@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {FaviconTag}
+  {GoogleAnalyticsTag}
+  <title>{ShopName}</title>
+  <link rel="stylesheet" href="%%CSS_URL%%">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="inner">
+      {block:HasLogo}
+        <a href="/" class="logo"><img src="{LogoURL}" alt="{ShopName}"></a>
+      {/block:HasLogo}
+      {block:HasNoLogo}
+        <a href="/" class="site-title">{ShopName}</a>
+      {/block:HasNoLogo}
+      <nav class="global-nav">
+        <a href="/">商品一覧</a>
+        <a href="/about">ショップについて</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="site-main">
+
+    <!-- 商品一覧ページ -->
+    {block:IndexPage}
+    <div class="items-grid">
+      {block:Items}
+      <article class="item-card">
+        <a href="{ItemURL}">
+          <div class="item-image">
+            <img src="{ItemImageURL}" alt="{ItemTitle}">
+            {block:HasNoItemStock}
+              <span class="sold-out-badge">SOLD OUT</span>
+            {/block:HasNoItemStock}
+          </div>
+          <div class="item-info">
+            <h2 class="item-title">{ItemTitle}</h2>
+            <p class="item-price">{ItemPrice}</p>
+          </div>
+        </a>
+      </article>
+      {/block:Items}
+    </div>
+    {/block:IndexPage}
+
+    <!-- 商品詳細ページ -->
+    {block:ItemPage}
+    <div class="item-detail">
+      <div class="item-detail-images">
+        {block:ItemImages}
+          <img src="{ItemImageURLl}" alt="{ItemTitle}">
+        {/block:ItemImages}
+      </div>
+      <div class="item-detail-info">
+        <h1 class="item-title">{ItemTitle}</h1>
+        <p class="item-price">{ItemPrice}</p>
+        {block:HasItemStock}
+          <a href="{AddToCartURL}" class="btn-cart">カートに入れる</a>
+        {/block:HasItemStock}
+        {block:HasNoItemStock}
+          <p class="sold-out">SOLD OUT</p>
+        {/block:HasNoItemStock}
+        <div class="item-description">{ItemDetail}</div>
+      </div>
+    </div>
+    {/block:ItemPage}
+
+    <!-- ショップ紹介ページ -->
+    {block:AboutPage}
+    <div class="about-page">
+      <h1>ショップについて</h1>
+      <!-- ここに About の内容を書く -->
+    </div>
+    {/block:AboutPage}
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="inner">
+      <p class="copyright">&copy; {ShopName}</p>
+    </div>
+  </footer>
+
+  <script src="%%JS_URL%%"></script>
+</body>
+</html>
