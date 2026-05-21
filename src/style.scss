@@ -1150,7 +1150,7 @@ body#shopDetailPage {
 
 .set-nav {
   background-color: #eef2f7;
-  padding: 20px 0;
+  padding: 14px 0;
   margin: 0;
 
   .set-nav-lead {
@@ -1158,82 +1158,44 @@ body#shopDetailPage {
     color: var(--gray-color);
     font-size: 0.78rem;
     letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
-  .set-nav-cards {
+  .set-nav-btns {
     display: flex;
-    gap: 16px;
+    gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0 16px;
   }
 
-  .set-nav-card {
-    max-width: 520px;
-    flex: 1 1 280px;
+  .set-nav-btn {
+    display: block;
+    padding: 8px 18px;
     background: #fff;
+    border: 2px solid var(--primary-color);
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    &:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
-  }
-
-  .set-nav-card-link {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 14px;
-    color: inherit;
+    color: var(--primary-color);
     text-decoration: none;
-
-    img {
-      width: 88px;
-      height: 88px;
-      object-fit: cover;
-      border-radius: 6px;
-      flex-shrink: 0;
+    text-align: center;
+    transition: var(--transition);
+    &:hover {
+      background: var(--primary-color);
+      color: #fff;
     }
   }
 
-  .set-nav-card-body {
-    flex: 1;
-    h3 { font-size: 1.05rem; color: var(--primary-color); margin-bottom: 4px; }
-    p  { font-size: 0.8rem; color: var(--dark-color); line-height: 1.5; margin-bottom: 6px; }
-  }
-
-  .set-nav-badge {
-    display: inline-block;
-    background: var(--accent-color);
-    color: var(--dark-color);
-    font-size: 0.68rem;
+  .set-nav-btn-name {
+    display: block;
+    font-size: 0.9rem;
     font-weight: bold;
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin-bottom: 4px;
   }
 
-  .set-nav-price {
-    font-size: 0.95rem;
-    font-weight: bold;
-    color: var(--primary-color);
-  }
-
-  .set-nav-cta {
-    display: inline-block;
-    background: var(--primary-color);
-    color: #fff;
+  .set-nav-btn-price {
+    display: block;
     font-size: 0.78rem;
-    font-weight: bold;
-    padding: 5px 14px;
-    border-radius: 20px;
     margin-top: 2px;
-    transition: var(--transition);
-    &:hover { opacity: 0.85; }
-  }
-
-  @media (max-width: 768px) {
-    .set-nav-card-link img { width: 70px; height: 70px; }
+    opacity: 0.85;
   }
 }
 

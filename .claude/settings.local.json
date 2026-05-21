@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node scripts/build.js)"
+      "Bash(node scripts/build.js)",
+      "Bash(npm run *)"
     ]
   }
 }
