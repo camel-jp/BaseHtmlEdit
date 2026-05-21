@@ -1094,15 +1094,16 @@ body#shopDetailPage {
 // ============================================================
 
 .lp-pre {
-  background: #f5f7fa; // hero グラデーション始点と合わせて違和感をなくす
-  section { margin: 0; }
+  background: transparent;
+  section { margin: 0; background: transparent; }
 }
 .lp-post {
-  background: #fff;
-  section { margin: 0; }
+  background: transparent;
+  section { margin: 0; background: transparent; }
 }
 // fixed ヘッダー分の上余白は hero のみ維持（.lp-pre section より高い詳細度）
-.lp-pre .hero { margin-top: 100px; }
+// hero 背景は body の teal と合わせて統一感を出す
+.lp-pre .hero { margin-top: 100px; background: #ADC7C1; }
 
 // ============================================================
 // 12. LP ヒーロー
@@ -1164,7 +1165,7 @@ body#shopDetailPage {
 // ============================================================
 
 .set-nav {
-  background-color: #eef2f7;
+  background: transparent;
   padding: 14px 0;
   margin: 0;
 
