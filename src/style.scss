@@ -1213,6 +1213,15 @@ body#shopDetailPage {
     margin-top: 2px;
     opacity: 0.85;
   }
+
+  .set-nav-btn-desc {
+    display: block;
+    font-size: 0.7rem;
+    margin-top: 4px;
+    opacity: 0.7;
+    line-height: 1.4;
+    white-space: normal;
+  }
 }
 
 // 現在表示中の商品ページのボタンを非表示
