@@ -41,10 +41,9 @@ function build() {
   }
 
   const cdnBase = `https://cdn.jsdelivr.net/gh/${config.githubUser}/${config.githubRepo}@${config.branch}/dist`;
-  const css = fs.readFileSync(path.join(DIST, 'style.css'), 'utf-8');
   let html = fs.readFileSync(path.join(SRC, 'template.html'), 'utf-8');
   html = html
-    .replace('<link rel="stylesheet" href="%%CSS_URL%%">', `<style>${css}</style>`)
+    .replace('%%CSS_URL%%', `${cdnBase}/style.css`)
     .replace('%%JS_URL%%', `${cdnBase}/script.js`);
   fs.writeFileSync(path.join(DIST, 'template.html'), html);
   console.log('✓ HTML generated →  dist/template.html');
