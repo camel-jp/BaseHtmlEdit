@@ -21,7 +21,7 @@
   // ---- LP ファイルの取得先 ----
   var LP_BASE = location.hostname === 'localhost'
     ? ''
-    : 'https://cdn.jsdelivr.net/gh/camel-jp/BaseHtmlEdit@main/dist';
+    : 'https://camel-jp.github.io/BaseHtmlEdit';
 
   // ============================================================
   // 1. 商品ページ共通スライダー / カラーボックス / スクロールバー

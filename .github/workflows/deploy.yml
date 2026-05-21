@@ -39,12 +39,6 @@ jobs:
           git diff --staged --quiet && echo "No changes to commit" || \
             (git commit -m "chore: auto-build dist [skip ci]" && git push)
 
-      - name: Purge jsDelivr cache
-        run: |
-          curl -sf "https://purge.jsdelivr.net/gh/camel-jp/BaseHtmlEdit@main/dist/style.css"          && echo "✓ CSS purged"          || echo "⚠ CSS purge skipped"
-          curl -sf "https://purge.jsdelivr.net/gh/camel-jp/BaseHtmlEdit@main/dist/script.js"         && echo "✓ JS purged"           || echo "⚠ JS purge skipped"
-          curl -sf "https://purge.jsdelivr.net/gh/camel-jp/BaseHtmlEdit@main/dist/lp/element-cube.html" && echo "✓ LP HTML purged" || echo "⚠ LP HTML purge skipped"
-
       - name: Deploy dist/ to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:

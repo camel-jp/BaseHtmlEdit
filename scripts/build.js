@@ -40,7 +40,7 @@ function build() {
     console.warn('   %%CSS_URL%% / %%JS_URL%% は未置換のまま出力します');
   }
 
-  const cdnBase = `https://cdn.jsdelivr.net/gh/${config.githubUser}/${config.githubRepo}@${config.branch}/dist`;
+  const cdnBase = `https://${config.githubUser}.github.io/${config.githubRepo}`;
   let html = fs.readFileSync(path.join(SRC, 'template.html'), 'utf-8');
   html = html
     .replace('%%CSS_URL%%', `${cdnBase}/style.css`)
@@ -57,6 +57,20 @@ function build() {
       fs.copyFileSync(path.join(srcLp, file), path.join(distLp, file));
     }
     console.log('✓ LP copied     →  dist/lp/');
+  }
+
+  // 4b. 元素詳細ページをコピー（src/element-cube-details/ → dist/element-cube-details/）
+  const srcDetails  = path.join(SRC, 'element-cube-details');
+  const distDetails = path.join(DIST, 'element-cube-details');
+  if (fs.existsSync(srcDetails)) {
+    fs.mkdirSync(distDetails, { recursive: true });
+    for (const file of fs.readdirSync(srcDetails)) {
+      const srcFile = path.join(srcDetails, file);
+      if (fs.statSync(srcFile).isFile()) {
+        fs.copyFileSync(srcFile, path.join(distDetails, file));
+      }
+    }
+    console.log('✓ Details copied →  dist/element-cube-details/');
   }
 
   // 5. クリップボードへコピー（Windows のみ、CI はスキップ）
