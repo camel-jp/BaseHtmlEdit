@@ -64,7 +64,7 @@ function build() {
   try {
     const proc = spawn(
       'powershell.exe',
-      ['-Command', `Get-Content "${path.join(DIST, 'template.html')}" | Set-Clipboard`],
+      ['-Command', `[System.IO.File]::ReadAllText("${path.join(DIST, 'template.html')}", [System.Text.Encoding]::UTF8) | Set-Clipboard`],
       { stdio: 'inherit' }
     );
     proc.on('close', (code) => {
