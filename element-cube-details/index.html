@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>葡萄屋 元素標本キューブ</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .page-header {
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 14px 0;
+    }
+    .page-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .page-header .logo h1 {
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 0;
+    }
+    .page-header .nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .page-header .nav a {
+      color: var(--dark-color);
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    .page-header .nav a:hover { color: var(--primary-color); }
+
+    .image-container img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-notice {
+      padding: 40px 0;
+      background: var(--light-color, #f7f8fa);
+    }
+    .product-notice .section-title { text-align: center; margin-bottom: 28px; }
+    .notice-category {
+      padding: 20px 24px;
+      border-radius: var(--radius, 8px);
+      margin-bottom: 16px;
+    }
+    .notice-category.notice    { background: #fff8e1; border-left: 4px solid #f6ad55; }
+    .notice-category.prohibited { background: #fff5f5; border-left: 4px solid #fc8181; }
+    .notice-category h3 { font-size: 1rem; font-weight: bold; margin-bottom: 8px; }
+    .notice-category li { font-size: 0.9rem; line-height: 1.9; }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <div class="container">
+      <div class="logo">
+        <h1>葡萄屋 元素標本キューブ</h1>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="https://www.budouyastone.com/">HOME</a></li>
+          <li><a href="https://www.budouyastone.com/about">ABOUT</a></li>
+          <li><a href="https://www.budouyastone.com/contact">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="image-container">
+    <img src="top-image.jpg" alt="元素全周表">
+  </div>
+
+  <!-- 注意事項 -->
+  <section class="product-notice">
+    <h2 class="section-title">取り扱い上の注意事項</h2>
+    <div class="container">
+      <div class="notice-category notice">
+        <h3>注意</h3>
+        <ul>
+          <li>一部の酸化しやすい金属について：手で直接触れると酸化が早まります</li>
+          <li>一部の柔らかい元素について：強い力を加えると破損する恐れがあります</li>
+        </ul>
+      </div>
+      <div class="notice-category prohibited">
+        <h3>禁止</h3>
+        <ul>
+          <li>なんでも口に入れること</li>
+          <li>火に近づけたり加熱すること</li>
+          <li>水や化学薬品に触れさせること</li>
+          <li>切ったり削ったりして加工すること</li>
+          <li>小さなお子様がいる部屋に近づけること</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 元素詳細 -->
+  <section id="details" class="product-details">
+    <div class="container">
+      <h2 class="section-title">詳しい解説</h2>
+
+      <div class="elements-indicators">
+        <div class="element-indicator active" data-symbol="C">C</div>
+        <div class="element-indicator" data-symbol="Mg">Mg</div>
+        <div class="element-indicator" data-symbol="Al">Al</div>
+        <div class="element-indicator" data-symbol="Ti">Ti</div>
+        <div class="element-indicator" data-symbol="V">V</div>
+        <div class="element-indicator" data-symbol="Cr">Cr</div>
+        <div class="element-indicator" data-symbol="Fe">Fe</div>
+        <div class="element-indicator" data-symbol="Co">Co</div>
+        <div class="element-indicator" data-symbol="Ni">Ni</div>
+        <div class="element-indicator" data-symbol="Cu">Cu</div>
+        <div class="element-indicator" data-symbol="Zn">Zn</div>
+        <div class="element-indicator" data-symbol="Y">Y</div>
+        <div class="element-indicator" data-symbol="Zr">Zr</div>
+        <div class="element-indicator" data-symbol="Nb">Nb</div>
+        <div class="element-indicator" data-symbol="Mo">Mo</div>
+        <div class="element-indicator" data-symbol="Ag">Ag</div>
+        <div class="element-indicator" data-symbol="In">In</div>
+        <div class="element-indicator" data-symbol="Sn">Sn</div>
+        <div class="element-indicator" data-symbol="Sb">Sb</div>
+        <div class="element-indicator" data-symbol="Sm">Sm</div>
+        <div class="element-indicator" data-symbol="Gd">Gd</div>
+        <div class="element-indicator" data-symbol="Er">Er</div>
+        <div class="element-indicator" data-symbol="W">W</div>
+        <div class="element-indicator" data-symbol="Pb">Pb</div>
+        <div class="element-indicator" data-symbol="Bi">Bi</div>
+      </div>
+
+      <div class="elements-grid">
+
+        <div class="element" data-symbol="C">
+          <div class="element-symbol">C</div><h3>炭素</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 6</li>
+            <li><strong>密度</strong>: 1.82 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 1800 ppm</li>
+            <li><strong>発見</strong>: 古代から知られている</li>
+          </ul>
+          <p>生命の基盤となる元素。ダイヤモンドや黒鉛など、異なる結晶構造を持つ同素体が存在。鉄鋼製造・電子材料・医薬品など幅広い分野で利用。</p>
+        </div>
+
+        <div class="element" data-symbol="Mg">
+          <div class="element-symbol">Mg</div><h3>マグネシウム</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 12</li>
+            <li><strong>密度</strong>: 1.74 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 23000 ppm</li>
+            <li><strong>発見</strong>: 1755年</li>
+          </ul>
+          <p>実用金属として最も軽く、燃焼時に強い光を放つ。合金材料（航空宇宙産業）・豆腐の凝固剤・医薬品（制酸剤）などに利用。</p>
+        </div>
+
+        <div class="element" data-symbol="Al">
+          <div class="element-symbol">Al</div><h3>アルミニウム</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 13</li>
+            <li><strong>密度</strong>: 2.70 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 82000 ppm</li>
+            <li><strong>発見</strong>: 1825年</li>
+          </ul>
+          <p>軽量で加工しやすく、優れた耐食性を持つ。地殻中に豊富に存在し、建築材料・輸送機器・包装材料（アルミ缶）など用途は多岐にわたる。</p>
+        </div>
+
+        <div class="element" data-symbol="Ti">
+          <div class="element-symbol">Ti</div><h3>チタン</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 22</li>
+            <li><strong>密度</strong>: 4.53 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 5600 ppm</li>
+            <li><strong>発見</strong>: 1791年</li>
+          </ul>
+          <p>鉄鋼に匹敵する強度を持ちながら重量は約半分。耐食性・特に耐海水性に優れる。航空宇宙産業・化学プラント・医療用インプラントなどに利用。</p>
+        </div>
+
+        <div class="element" data-symbol="V">
+          <div class="element-symbol">V</div><h3>バナジウム</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 23</li>
+            <li><strong>密度</strong>: 6.11 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 160 ppm</li>
+            <li><strong>発見</strong>: 1801年</li>
+          </ul>
+          <p>少量添加するだけで鋼の強度・靭性・耐熱性を大幅に向上させる。特殊鋼・工具鋼などの合金添加剤として重要。触媒としても利用される。</p>
+        </div>
+
+        <div class="element" data-symbol="Cr">
+          <div class="element-symbol">Cr</div><h3>クロム</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 24</li>
+            <li><strong>密度</strong>: 7.22 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 100 ppm</li>
+            <li><strong>発見</strong>: 1797年</li>
+          </ul>
+          <p>硬く強い光沢を持つ銀白色の金属。耐食性と耐摩耗性に優れ、ステンレス鋼の主要成分。めっき・顔料・触媒などにも利用。</p>
+        </div>
+
+        <div class="element" data-symbol="Fe">
+          <div class="element-symbol">Fe</div><h3>鉄</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 26</li>
+            <li><strong>密度</strong>: 7.80 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 41000 ppm</li>
+            <li><strong>発見</strong>: 古代から知られている</li>
+          </ul>
+          <p>最も広く利用される金属。安価で加工しやすく強度が高い。建築・自動車・鉄道など、社会の基盤を支える幅広い分野で利用される。</p>
+        </div>
+
+        <div class="element" data-symbol="Co">
+          <div class="element-symbol">Co</div><h3>コバルト</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 27</li>
+            <li><strong>密度</strong>: 8.90 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 20 ppm</li>
+            <li><strong>発見</strong>: 1735年頃</li>
+          </ul>
+          <p>強磁性を持ち、耐熱性・耐摩耗性に優れる。リチウムイオン電池の正極材・超硬合金・磁石・顔料（コバルトブルー）などに利用。</p>
+        </div>
+
+        <div class="element" data-symbol="Ni">
+          <div class="element-symbol">Ni</div><h3>ニッケル</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 28</li>
+            <li><strong>密度</strong>: 8.90 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 80 ppm</li>
+            <li><strong>発見</strong>: 1751年</li>
+          </ul>
+          <p>耐食性・耐熱性に優れ、美しい銀白色の光沢を持つ。ステンレス鋼・特殊合金（インコネルなど）・めっき・二次電池などに利用。</p>
+        </div>
+
+        <div class="element" data-symbol="Cu">
+          <div class="element-symbol">Cu</div><h3>銅</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 29</li>
+            <li><strong>密度</strong>: 8.96 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 50 ppm</li>
+            <li><strong>発見</strong>: 紀元前9000年頃</li>
+          </ul>
+          <p>最古の金属の一つ。優れた熱伝導性と電気伝導性を持ち、特徴的な赤褐色を放つ。電線・電子機器・建築材料・貨幣などに利用。</p>
+        </div>
+
+        <div class="element" data-symbol="Zn">
+          <div class="element-symbol">Zn</div><h3>亜鉛</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 30</li>
+            <li><strong>密度</strong>: 7.14 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 75 ppm</li>
+            <li><strong>発見</strong>: 1746年以前</li>
+          </ul>
+          <p>鉄の防錆（めっき）に広く利用される。電池の負極材・合金（真鍮）・ゴムの加硫助剤などに多様な用途を持つ。</p>
+        </div>
+
+        <div class="element" data-symbol="Y">
+          <div class="element-symbol">Y</div><h3>イットリウム</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 39</li>
+            <li><strong>密度</strong>: 4.47 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 30 ppm</li>
+            <li><strong>発見</strong>: 1794年</li>
+          </ul>
+          <p>希土類元素の一つ。レーザー結晶・蛍光体（赤色）・超伝導材料・合金添加剤などに利用される。先端技術に不可欠な元素。</p>
+        </div>
+
+        <div class="element" data-symbol="Zr">
+          <div class="element-symbol">Zr</div><h3>ジルコニウム</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 40</li>
+            <li><strong>密度</strong>: 6.51 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 190 ppm</li>
+            <li><strong>発見</strong>: 1789年</li>
+          </ul>
+          <p>優れた耐食性と低い中性子吸収断面積を持つ。原子炉の燃料被覆管として極めて重要。セラミックス（ジルコニア）・耐火物などにも利用。</p>
+        </div>
+
+        <div class="element" data-symbol="Nb">
+          <div class="element-symbol">Nb</div><h3>ニオブ</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 41</li>
+            <li><strong>密度</strong>: 8.67 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 20 ppm</li>
+            <li><strong>発見</strong>: 1801年</li>
+          </ul>
+          <p>鉄鋼に添加すると強度と靭性を大幅に向上させる。超伝導材料としても優れ、MRI装置・加速器の電磁石に利用される。</p>
+        </div>
+
+        <div class="element" data-symbol="Mo">
+          <div class="element-symbol">Mo</div><h3>モリブデン</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 42</li>
+            <li><strong>密度</strong>: 10.22 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 1.5 ppm</li>
+            <li><strong>発見</strong>: 1778年</li>
+          </ul>
+          <p>高融点を持ち、高温での強度が高い。特殊鋼・合金の添加剤として強度と耐食性を向上させる。潤滑剤（二硫化モリブデン）としても重要。</p>
+        </div>
+
+        <div class="element" data-symbol="Ag">
+          <div class="element-symbol">Ag</div><h3>銀</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 47</li>
+            <li><strong>密度</strong>: 10.49 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 0.070 ppm</li>
+            <li><strong>発見</strong>: 古代から知られている</li>
+          </ul>
+          <p>全金属中で最高の電気伝導性と熱伝導性を持つ。美しい輝きから装飾品に用いられる。写真フィルム・電子部品・抗菌材などにも利用。</p>
+        </div>
+
+        <div class="element" data-symbol="In">
+          <div class="element-symbol">In</div><h3>インジウム</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 49</li>
+            <li><strong>密度</strong>: 7.31 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 0.049 ppm</li>
+            <li><strong>発見</strong>: 1863年</li>
+          </ul>
+          <p>柔らかく融点が低い金属。ITO（インジウム・スズ酸化物）として液晶ディスプレイ・タッチパネルの透明電極に不可欠な元素。</p>
+        </div>
+
+        <div class="element" data-symbol="Sn">
+          <div class="element-symbol">Sn</div><h3>スズ</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 50</li>
+            <li><strong>密度</strong>: 7.31 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 2.2 ppm</li>
+            <li><strong>発見</strong>: 古代から知られている</li>
+          </ul>
+          <p>融点が低く、加工しやすく毒性がない耐食性に優れる。はんだ（ブリキ）・合金（青銅）など多岐にわたり利用されている。</p>
+        </div>
+
+        <div class="element" data-symbol="Sb">
+          <div class="element-symbol">Sb</div><h3>アンチモン</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 51</li>
+            <li><strong>密度</strong>: 6.70 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 0.2 ppm</li>
+            <li><strong>発見</strong>: 古代から知られている</li>
+          </ul>
+          <p>半金属性の元素。プラスチック・繊維に難燃性を与える助剤として重要。合金（鉛蓄電池の電極）・半導体材料などにも利用。</p>
+        </div>
+
+        <div class="element" data-symbol="Sm">
+          <div class="element-symbol">Sm</div><h3>サマリウム</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 62</li>
+            <li><strong>密度</strong>: 7.54 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 7.9 ppm</li>
+            <li><strong>発見</strong>: 1879年</li>
+          </ul>
+          <p>希土類元素の一つ。非常に強力な永久磁石（サマリウムコバルト磁石）の材料として知られる。モーター・センサーなどに利用される。</p>
+        </div>
+
+        <div class="element" data-symbol="Gd">
+          <div class="element-symbol">Gd</div><h3>ガドリニウム</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 64</li>
+            <li><strong>密度</strong>: 7.89 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 7.7 ppm</li>
+            <li><strong>発見</strong>: 1880年</li>
+          </ul>
+          <p>希土類元素の中で最も強い磁性を持つ。MRI用の造影剤として医療分野で重要。中性子吸収能力が高く、原子炉制御棒にも利用。</p>
+        </div>
+
+        <div class="element" data-symbol="Er">
+          <div class="element-symbol">Er</div><h3>エルビウム</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 68</li>
+            <li><strong>密度</strong>: 9.07 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 3.8 ppm</li>
+            <li><strong>発見</strong>: 1843年</li>
+          </ul>
+          <p>特徴的なピンク色のイオンを持つ希土類元素。光ファイバー通信の増幅器に不可欠。ガラスの着色材・レーザー材料としても利用される。</p>
+        </div>
+
+        <div class="element" data-symbol="W">
+          <div class="element-symbol">W</div><h3>タングステン</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 74</li>
+            <li><strong>密度</strong>: 19.25 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 1.3 ppm</li>
+            <li><strong>発見</strong>: 1783年</li>
+          </ul>
+          <p>単体で最も重い元素。全金属元素中で最高の融点（3422℃）を持つ。電球のフィラメント・切削工具・放射線シールドなどに利用。</p>
+        </div>
+
+        <div class="element" data-symbol="Pb">
+          <div class="element-symbol">Pb</div><h3>鉛</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 82</li>
+            <li><strong>密度</strong>: 11.34 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 14 ppm</li>
+            <li><strong>発見</strong>: 古代から知られている</li>
+          </ul>
+          <p>密度が高く、柔らかく加工しやすい。放射線遮蔽能力に優れる。鉛蓄電池・防音材などに利用される。</p>
+        </div>
+
+        <div class="element" data-symbol="Bi">
+          <div class="element-symbol">Bi</div><h3>ビスマス</h3>
+          <ul>
+            <li><strong>原子番号</strong>: 83</li>
+            <li><strong>密度</strong>: 9.78 g/cm³</li>
+            <li><strong>地殻中の存在度</strong>: 0.048 ppm</li>
+            <li><strong>発見</strong>: 1753年</li>
+          </ul>
+          <p>鉛の代替として注目される、毒性の低い重金属。融点が低く、他の金属と混ぜて融点合金を作る。医薬品（胃腸薬）・化粧品などに利用。</p>
+        </div>
+
+      </div>
+
+      <div class="item-option">
+        <h3>「地殻中の存在度」とは</h3>
+        <p>地殻中の存在度で使われる「ppm」は「parts per million」の略で、100万分の1を意味する質量の割合を示す単位です。地殻という非常に大きな塊の中に、ある元素がどれくらいの割合で含まれているかを示す際に用いられます。<br>
+        例えば、酸素(O)の地殻中の存在度は474,000ppmで全ての元素の中で最大です。これは地殻の質量のうち47.4%が酸素(O)で構成されていることを意味します。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 商品紹介 -->
+  <section class="other-items-section">
+    <div class="container">
+      <h2 class="section-title">商品のご紹介</h2>
+      <div class="other-items">
+        <div class="other-item"><a href="https://www.budouyastone.com/items/115127875" class="card-link">
+          <img src="https://basefile.akamaized.net/budouya-base-ec/68b910df3cc0f/9E7A8AE_E7AEB1E585A5E3828A.jpg" alt="9種セットの商品画像">
+          <h3>9種セット</h3>
+          <p class="description">待望の追加セット。9種類のレアメタルをあなたのコレクションに。</p>
+          <p class="price">¥39,500</p>
+        </a></div>
+        <div class="other-item"><a href="https://www.budouyastone.com/items/87999715" class="card-link">
+          <img src="https://basefile.akamaized.net/budouya-base-ec/68b910fab53a0/16E7A8AE_E7AEB1E585A5E3828A.jpg" alt="16種セットの商品画像">
+          <h3>16種セット</h3>
+          <p class="description">定番の元素をセレクトした、満足度の高い16種のコレクション。</p>
+          <p class="price">¥39,500</p>
+        </a></div>
+        <div class="other-item"><a href="https://www.budouyastone.com/items/115127926" class="card-link">
+          <img src="https://basefile.akamaized.net/budouya-base-ec/68b9110f5736c/25E7A8AE_E7AEB1E585A5E3828A.jpg" alt="25種セットの商品画像">
+          <h3>25種セット</h3>
+          <p class="description">すべてのバリエーションを揃えた完璧なコンプリートセット。</p>
+          <p class="price">¥69,000</p>
+        </a></div>
+        <div class="other-item"><a href="https://www.budouyastone.com/items/116197525" class="card-link">
+          <img src="https://basefile.akamaized.net/budouya-base-ec/68b9187a26d03/E98A801.jpg" alt="ホールマーク付き銀キューブの商品画像">
+          <h3>ホールマーク付き銀キューブ</h3>
+          <p class="description">品質を証明するホールマークを裏面に刻印した、純銀の元素標本キューブ。</p>
+          <p class="price">¥22,000</p>
+        </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>葡萄屋 鉱物・鉱貨専門店</h2>
+          <p>本物の科学体験をお届けします</p>
+        </div>
+        <div class="footer-links">
+          <h3>リンク</h3>
+          <ul>
+            <li><a href="https://www.budouyastone.com/">HOME</a></li>
+            <li><a href="https://www.budouyastone.com/about">ABOUT</a></li>
+            <li><a href="https://www.budouyastone.com/contact">CONTACT</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 葡萄屋 鉱物・鉱貨専門店. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
