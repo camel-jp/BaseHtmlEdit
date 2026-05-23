@@ -637,30 +637,23 @@
     <!-- 元素キューブ強制表示制御（外部CSS上書き対策用） -->
     <style type="text/css">
         /* デフォルト非表示化（CDNキャッシュ対策として強制的に隠す） */
-        .ec-content,
-        .set9,
-        .set16,
-        .set25 {
-            display: none !important;
-        }
+        .ec-content { display: none !important; }
 
         /* BASE独自の {ItemId} クラスが存在する場合のみ表示 */
         .product-87999715 .ec-content,
         .product-115127926 .ec-content,
-        .product-115127875 .ec-content { display: block !important; }
+        .product-115127875 .ec-content,
+        .product-145129583 .ec-content { display: block !important; }
 
         .product-87999715 .ec-hidden,
         .product-115127926 .ec-hidden,
-        .product-115127875 .ec-hidden { display: none !important; }
+        .product-115127875 .ec-hidden,
+        .product-145129583 .ec-hidden { display: none !important; }
 
         .product-87999715 #shopHeader,
         .product-115127926 #shopHeader,
-        .product-115127875 #shopHeader { display: none !important; }
-
-        /* 商品IDごとのセット画像切り替え */
-        .product-115127875 .set9  { display: block !important; }
-        .product-87999715  .set16 { display: block !important; }
-        .product-115127926 .set25 { display: block !important; }
+        .product-115127875 #shopHeader,
+        .product-145129583 #shopHeader { display: none !important; }
     </style>
 </body>
 
