@@ -1,57 +1,82 @@
 # BaseHtmlEdit プロジェクト AI 用開発ガイド
 
-このドキュメントは、BASE カスタムテーマ開発プロジェクト「BaseHtmlEdit」を編集するAIや開発者に向けた重要なガイドラインとTipsです。
+このドキュメントは、BASE カスタムテーマ開発プロジェクト「BaseHtmlEdit」を編集するAIや開発者に向けたガイドラインです。
 
-## 1. プロジェクト構成とビルドの仕組み
+## 1. プロジェクト構成
 
-当プロジェクトは保守性を高めるため、ソースコードを分離し、ビルドスクリプトで1つのHTMLに書き出す構成（分離設計）をとっています。
+ビルドパイプラインはなく、ファイルをルートに直接置いてそのまま GitHub Pages で配信します。
 
-- `src/template.html`: BASEのベースとなるHTMLファイル。
-- `src/style.scss`: カスタムCSS。ビルド時にコンパイルされます。
-- `src/script.js`: カスタムJavaScript。
-- `src/lp/`: 商品ごとのLPフラグメント等の外部HTML。
-- `scripts/build.js`: 上記のファイルを結合・コンパイルするスクリプト。
-- `dist/`: ビルドの出力先。このフォルダ内の `template.html` をBASE管理画面に貼り付けます。
-
-**⚠️ 重要なルール:**
-ビルド後、CSSとJS、LPのHTMLは **GitHub 上のファイルを参照し、jsDelivr (CDN) を経由して読み込まれます**。
-そのため、ローカルで作業して `dist/template.html` だけをBASEに貼り付けても、変更したCSS/JS/HTMLは **GitHub の main ブランチに Push しないと本番環境（BASE）には反映されません**。（さらに、CDNの強力なキャッシュにより反映に時間がかかることもあります）
-
-## 2. `{ItemId}` を利用した商品ごとの表示・非表示制御
-
-BASEの仕様上、特定の商品の時だけ特定のコンテンツやLPを表示させたい場合、`{ItemId}` タグを活用して CSS で出し分けを行います。
-
-### 確実な表示制御の手法（CDNキャッシュやJSエラーの回避）
-
-商品固有のクリティカルな CSS 制御（表示・非表示）は、外部 CSS (`style.scss`) ではなく、**`src/template.html` の最後（`</body>` 直前）にインライン `<style>` として記述** してください。
-
-**理由:**
-1. **キャッシュ問題の回避:** 外部CSSに書くと、CDNキャッシュによって最新の表示設定がユーザーに届かないリスクがあります。
-2. **外部CSSの上書き回避:** 外部のCSSファイルが `template.html` の途中で読み込まれた場合、セレクタの詳細度によっては後から上書きされてしまいます。HTMLの最下部に `!important` 付きで書くことで、あらゆるスタイルに打ち勝ちます。
-3. **JSエラーへの耐性:** JavaScript で動的にクラスを付与する手法は、BASEのプレビュー画面等で他の拡張機能起因のJSエラーが起きた場合に処理が停止し、表示が崩れるリスクがあります。
-
-**実装例:**
-```html
-<!-- src/template.html の </body> 直前に記述する例 -->
-<style type="text/css">
-    /* 1. デフォルトではすべて非表示にする（キャッシュ対策で強制隠蔽） */
-    .content-for-elemnt-cube,
-    .set9, .set16, .set25 { display: none !important; }
-
-    /* 2. 商品別ラッパーがある場合のみ強制表示 */
-    .product-115127875 .set9  { display: block !important; }
-    .product-87999715  .set16 { display: block !important; }
-    .product-115127926 .set25 { display: block !important; }
-</style>
+```
+style.css          ← カスタムCSS（直接編集可）
+script.js          ← カスタムJS（直接編集可、minify済み）
+template.html      ← BASEのテンプレート（BASE管理画面に貼り付ける）
+lp/                ← 商品ごとのLPフラグメント（fetchで動的注入）
+element-cube-details/ ← 元素解説ページ（静的サイト）
 ```
 
-## 3. コーディング上の注意点（フォーマッターの罠）
+**変更の反映方法:** ファイルを編集して main ブランチに push するだけ。GitHub Pages が main ブランチのルートを配信するため、自動で反映されます。
 
-BASEの独自タグ（例: `{ItemId}`, `{ItemPrice}`）は、波括弧の中にスペースが入ると**BASE側でタグとして認識されず、そのままの文字列として出力されてしまいます**。
+`template.html` を変更した場合は BASE 管理画面から手動で貼り付け直しが必要です。
 
-- ❌ 失敗例: `window.BASE_ITEM = { id: { ItemId } };`
-- ⭕ 成功例: `window.BASE_ITEM = { id: {ItemId} };`
+## 2. GitHub Pages URL と参照関係
 
-VS Code などのコードフォーマッター（Prettierなど）が、保存時に自動的に `{ ItemId }` のようにスペースを挿入してしまうことがあります。
-これが `<script>` タグ内で起きると、`ItemId is not defined` といった致命的な JavaScript エラー（ReferenceErrorなど）を引き起こし、ページ全体の処理が止まってLPが消えるなどの原因になります。
-フォーマット実行時にはBASEタグが破壊されていないか十分注意してください。
+- 配信元: `https://camel-jp.github.io/BaseHtmlEdit/`
+- `template.html` 内で以下の URL をハードコード参照:
+  - `https://camel-jp.github.io/BaseHtmlEdit/style.css`
+  - `https://camel-jp.github.io/BaseHtmlEdit/script.js`
+  - LP フェッチ先: `https://camel-jp.github.io/BaseHtmlEdit/lp/{ファイル名}`
+
+ローカルで開発する場合、`script.js` の `LP_BASE` は `localhost` のとき空文字になるので、`lp/` フォルダをローカルサーバのルートに置けば動作確認できます。
+
+## 3. 元素キューブ商品のLP読み込みの仕組み
+
+`script.js` は `window.BASE_ITEM.id` を見て、対象商品IDなら対応するLPファイルをフェッチして DOM に注入します。
+
+### 商品ID と LP ファイルの対応
+
+| 商品 | ID | LP ファイル |
+|---|---|---|
+| 16種セット | 87999715 | `lp/element-cube-16.html` |
+| 25種セット | 115127926 | `lp/element-cube-25.html` |
+| 9種セット | 115127875 | `lp/element-cube-9.html` |
+| 15種セット | 145129583 | `lp/element-cube-15.html` |
+
+新商品を追加する場合は `script.js` の `ELEMENT_CUBE_IDS` と `LP_MAP` の両方に追加が必要です（minify済みのため直接編集、または元ソースから再ビルド）。
+
+### 注入先
+
+`template.html` の `#lp-pre-purchase`（購入ボタン上）と `#lp-post-purchase`（購入ボタン下）に、`<div class="product-{id}">` で包まれて挿入されます。
+
+## 4. `ec-content` による表示制御
+
+`class="ec-content"` を持つ要素は、デフォルトで `display: none !important` に設定されています。`template.html` 末尾のインライン `<style>` で対象商品IDのときだけ表示します。
+
+```html
+<!-- template.html </body> 直前のインラインスタイル -->
+.ec-content { display: none !important; }
+.product-87999715 .ec-content,
+.product-115127926 .ec-content,
+.product-115127875 .ec-content,
+.product-145129583 .ec-content { display: block !important; }
+```
+
+**なぜインラインに書くか:** 外部 CSS は GitHub Pages のキャッシュが効くため、表示制御が遅れることがある。インライン `!important` で必ず最優先にする。
+
+`ec-hidden` は逆で、元素キューブ商品のとき `display: none` になる要素（ショップヘッダーなど）に使います。
+
+## 5. セット間ナビゲーション（set-nav）の hide-on-X パターン
+
+各LPの `<nav class="set-nav">` には全セットのボタンが並んでいます。「今見ているページのボタン」だけを隠すために `hide-on-{セット名}` クラスを使います。
+
+- ボタンはデフォルトで表示
+- `style.css` に `.product-XXXXX .hide-on-{セット名} { display: none !important; }` を定義
+- 新セットを追加したら `style.css` と全 LP ファイルの set-nav 両方を更新
+
+## 6. `{ItemId}` を含む BASE タグのフォーマッター問題
+
+BASE 独自タグは波括弧内にスペースがあるとタグとして認識されず文字列になります。
+
+- ❌ 失敗: `{ ItemId }`, `{ ItemPrice }`
+- ⭕ 正解: `{ItemId}`, `{ItemPrice}`
+
+Prettier 等のフォーマッターが `<script>` タグ内の `{ItemId}` を `{ ItemId }` に変換すると `ReferenceError` になりLPが消えます。`template.html` の編集時はフォーマット後に必ず確認してください。
