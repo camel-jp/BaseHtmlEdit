@@ -16,12 +16,19 @@
   'use strict';
 
   // ---- 元素キューブ商品 ID ----
-  var ELEMENT_CUBE_IDS = [87999715, 115127926, 115127875];
+  var ELEMENT_CUBE_IDS = [87999715, 115127926, 115127875, 145129583];
 
   // ---- LP ファイルの取得先 ----
   var LP_BASE = location.hostname === 'localhost'
     ? ''
     : 'https://camel-jp.github.io/BaseHtmlEdit';
+
+  var LP_MAP = {
+    87999715:  '/lp/element-cube-16.html',
+    115127926: '/lp/element-cube-25.html',
+    115127875: '/lp/element-cube-9.html',
+    145129583: '/lp/element-cube-15.html',
+  };
 
   // ============================================================
   // 1. 商品ページ共通スライダー / カラーボックス / スクロールバー
@@ -55,7 +62,7 @@
     var postMountPoint = document.getElementById('lp-post-purchase');
     if (!preMountPoint && !postMountPoint) return;
 
-    fetch(LP_BASE + '/lp/element-cube.html')
+    fetch(LP_BASE + LP_MAP[itemId])
       .then(function (r) {
         if (!r.ok) throw new Error('LP fetch failed: ' + r.status);
         return r.text();

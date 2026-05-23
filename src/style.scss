@@ -1226,6 +1226,7 @@ body#shopDetailPage {
 
 // 現在表示中の商品ページのボタンを非表示
 .product-115127875 .hide-on-9  { display: none !important; }
+.product-145129583 .hide-on-15 { display: none !important; }
 .product-87999715  .hide-on-16 { display: none !important; }
 .product-115127926 .hide-on-25 { display: none !important; }
 
@@ -1655,6 +1656,4 @@ cite { display: block; text-align: right; margin-top: 15px; font-style: normal; 
   #shopHeader { display: none; }
 }
 
-// セット別コンテンツ（section-image より後に宣言することで優先度が決まる）
-.set9, .set16, .set25 { display: none; }
 .preparation { display: none; }
