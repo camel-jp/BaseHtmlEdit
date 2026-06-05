@@ -7,11 +7,7 @@
       "Bash(git fetch *)",
       "Bash(git checkout *)",
       "Bash(mv .claude /tmp/basehtmledit_claude_backup)",
-      "Bash(mv /tmp/basehtmledit_claude_backup .claude)",
-      "Bash(git show *)"
-    ],
-    "additionalDirectories": [
-      "c:\\Users\\sasan\\BaseHtmlEdit"
+      "Bash(mv /tmp/basehtmledit_claude_backup .claude)"
     ]
   }
 }
